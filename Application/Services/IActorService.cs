@@ -12,7 +12,7 @@ namespace Application.Services
     public interface IActorService
     {
         Task<GenericResponse<bool>> CreateActor(CreateActorDTO model);
-        //Task<UpdateActorResponse> UpdateActor(UpdateActorDTO model);
+        Task<GenericResponse<bool>> UpdateActor(UpdateActorDTO model);
         //Task<DeleteActorResponse> DeleteActor(DeleteActorDTO model);
         /// <summary>
         /// If Actor is exist returns actorId(Guid). If Actor isn't exist returns false

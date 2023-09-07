@@ -83,3 +83,5 @@ D:\ARDA D\Arda\YAZILIM\MyProjects\MovieStore\MovieStore\bin\Debug\net6.0\Humaniz
 D:\ARDA D\Arda\YAZILIM\MyProjects\MovieStore\MovieStore\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 D:\ARDA D\Arda\YAZILIM\MyProjects\MovieStore\MovieStore\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
 D:\ARDA D\Arda\YAZILIM\MyProjects\MovieStore\MovieStore\obj\Debug\net6.0\MovieStore.MvcApplicationPartsAssemblyInfo.cs
+D:\ARDA D\Arda\YAZILIM\MyProjects\MovieStore\MovieStore\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\ARDA D\Arda\YAZILIM\MyProjects\MovieStore\MovieStore\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

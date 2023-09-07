@@ -344,7 +344,7 @@ namespace Persistence.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreationDate", "DeleteDate", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Status", "TwoFactorEnabled", "UpdateDate", "UserName" },
-                values: new object[] { "0b53ba26-748b-4fda-89bc-2c6b02dcf245", 0, "8a955e9b-f76b-4043-bf10-49f3898a2834", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "ardasen.96@gmail.com", true, "admin", "admin", false, null, "ARDASEN.96@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAECg6f0/tC/kbk70RGXAquYaFgyzsWl8hLjLuA5+eQIHwCAKW0oJtm38wYRjhTNsuvw==", null, false, "dee8e8ac-0d40-4327-8774-f07c1723eb6f", 0, false, null, "admin" });
+                values: new object[] { "cabb810b-18e5-4125-ba3c-11740867c9d7", 0, "de3cecbb-99ef-4a3a-b6ca-75d8989b53bf", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "ardasen.96@gmail.com", true, "admin", "admin", false, null, "ARDASEN.96@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAECg6f0/tC/kbk70RGXAquYaFgyzsWl8hLjLuA5+eQIHwCAKW0oJtm38wYRjhTNsuvw==", null, false, "198a8f29-5bf1-4ccb-b901-c4b3ea9aec16", 0, false, null, "admin" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ActorMovie_MoviesId",

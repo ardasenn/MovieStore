@@ -26,12 +26,13 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using Persistence.ConcreteServices.ActorService;
 
 namespace Persistence
 {
-    public static class ServiceRegistration 
+    public static class ServiceRegistration
     {
-        public static void AddPersistenceServices(this IServiceCollection services,IConfiguration configuration)
+        public static void AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<MovieDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("MovieDb")));
             services.AddIdentity<Customer, IdentityRole>(options =>
@@ -56,6 +57,7 @@ namespace Persistence
             services.AddScoped<IOrderReadRepository, OrderReadRepository>();
             services.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
             //Services
+            services.AddScoped<IActorService, ActorService>();
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IGenreService, GenreService>();
             //Mapper

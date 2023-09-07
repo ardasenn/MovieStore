@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,15 @@ namespace Application.DTOs.ActorDTOs
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public List<Movie> Movies { get; set; }
+    }
+
+    public class UpdateActorDTOValidator : AbstractValidator<UpdateActorDTO>
+    {
+        public UpdateActorDTOValidator()
+        {
+            RuleFor(a => a.Id).NotEmpty().NotNull();
+            RuleFor(a => a.FirstName).NotEmpty().NotNull().MaximumLength(100);
+            RuleFor(a => a.LastName).NotEmpty().NotNull().MaximumLength(100);
+        }
     }
 }

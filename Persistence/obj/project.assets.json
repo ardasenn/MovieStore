@@ -3105,11 +3105,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Persistence\\Persistence.csproj",
+      "projectUniqueName": "D:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Persistence\\Persistence.csproj",
       "projectName": "Persistence",
-      "projectPath": "d:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Persistence\\Persistence.csproj",
+      "projectPath": "D:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Persistence\\Persistence.csproj",
       "packagesPath": "C:\\Users\\arda9\\.nuget\\packages\\",
-      "outputPath": "d:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Persistence\\obj\\",
+      "outputPath": "D:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Persistence\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\arda9\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3126,8 +3126,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "d:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Application\\Application.csproj": {
-              "projectPath": "d:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Application\\Application.csproj"
+            "D:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Application\\Application.csproj": {
+              "projectPath": "D:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Application\\Application.csproj"
             }
           }
         }
@@ -3177,7 +3177,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }

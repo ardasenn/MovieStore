@@ -8,8 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Utilities\Constants\" />
-    <Folder Include="DTOs\" />
-    <Folder Include="Services\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
 

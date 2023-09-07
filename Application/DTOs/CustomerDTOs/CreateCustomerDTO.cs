@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Application.DTOs.ActorDTOs;
+using FluentValidation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,5 +17,14 @@ namespace Application.DTOs.CustomerDTOs
         public string Password { get; set; }
         public string PasswordConfirm { get; set; }
         public string PhoneNumber { get; set; }
+    }
+    public class CreateCustomerDTOValidator : AbstractValidator<CreateCustomerDTO>
+    {
+        public CreateCustomerDTOValidator()
+        {
+            RuleFor(a => a.FirstName).NotEmpty().NotNull().MaximumLength(100);
+            RuleFor(a => a.LastName).NotEmpty().NotNull().MaximumLength(100);
+            //todo validasyonlar
+        }
     }
 }

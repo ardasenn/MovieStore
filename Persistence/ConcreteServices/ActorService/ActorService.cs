@@ -29,10 +29,10 @@ namespace Persistence.ConcreteServices.ActorService
         }
         public async Task<GenericResponse<bool>> CreateActor(CreateActorDTO model)
         {
-            var actor = readRepository.GetSingleAsync(a => a.FirstName.ToLower() == model.FirstName.ToLower().Trim() && a.LastName.ToLower() == model.LastName.ToLower().Trim());
+            var actor = await readRepository.GetSingleAsync(a => a.FirstName.ToLower() == model.FirstName.ToLower().Trim() && a.LastName.ToLower() == model.LastName.ToLower().Trim());
 
             GenericResponse<bool> response = new();
-            if (actor == null)
+            if (actor != null)
             {
                 response.IsSuccess = false;
                 response.Message = Messages.Exist;

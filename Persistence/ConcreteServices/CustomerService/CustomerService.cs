@@ -7,6 +7,10 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Application.Utilities.Response;
 using Microsoft.AspNetCore.Identity;
+using Application.DTOs.AuthDTOs;
+using FluentValidation;
+using Application.Utilities.Helper;
+using Application.DTOs;
 
 namespace Persistence.ConcreteServices.CustomerService
 {
@@ -14,11 +18,13 @@ namespace Persistence.ConcreteServices.CustomerService
     {
         private readonly UserManager<Customer> userManager;
         private readonly IMapper mapper;
+        private readonly ITokenGeneratorService tokenGenerator;
 
-        public CustomerService(UserManager<Customer> userManager, IMapper mapper)
+        public CustomerService(UserManager<Customer> userManager, IMapper mapper, ITokenGeneratorService tokenGenerator)
         {
             this.userManager = userManager;
             this.mapper = mapper;
+            this.tokenGenerator = tokenGenerator;
         }
         public async Task<GenericResponse<bool>> CreateCustomerAsync(CreateCustomerDTO model)
         {
@@ -33,6 +39,33 @@ namespace Persistence.ConcreteServices.CustomerService
                     response.Message += $"{error.Code} - {error.Description}\n";
             }
             return response;
+        }
+
+        public async Task<GenericResponse<Application.DTOs.Token>> LoginCustomer(LoginDTO model)
+        {
+            GenericResponse<Application.DTOs.Token> response = new();
+            Customer customer = await userManager.FindByEmailAsync(model.Email);
+            if (customer == null)
+            {
+                response.Message = Messages.NotExist;
+                return response;
+            }
+            bool isLogin = await userManager.CheckPasswordAsync(customer, model.Password);
+            if (!isLogin)
+            {
+                response.Message = Messages.LoginFail;
+                return response;
+            }
+            await userManager.RemoveAuthenticationTokenAsync(customer, "Movie", "AccessToken");
+            Token token = tokenGenerator.CreateAccesToken(60 * 60);
+            await userManager.SetAuthenticationTokenAsync(customer, "Movie", "AccessToken", token.AccessToken);
+            response.IsSuccess = true;
+            response.Data = token;
+
+
+            return response;
+
+
         }
     }
 }

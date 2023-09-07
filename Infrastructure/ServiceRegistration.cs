@@ -1,5 +1,6 @@
 ﻿using Application.Services;
 using Infrastructure.Services.Logger;
+using Infrastructure.Services.Token;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace Infrastructure
         public static void AddInfrastructureServices(this IServiceCollection services)
         {
             services.AddSingleton<ILoggerService, LoggerService>();
+            services.AddScoped<ITokenGeneratorService, TokenGenerator>();
         }
     }
 }

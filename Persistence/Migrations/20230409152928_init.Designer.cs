@@ -12,7 +12,7 @@ using Persistence.Context;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(MovieDbContext))]
-    [Migration("20230409135804_init")]
+    [Migration("20230409152928_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -206,9 +206,9 @@ namespace Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "0b53ba26-748b-4fda-89bc-2c6b02dcf245",
+                            Id = "cabb810b-18e5-4125-ba3c-11740867c9d7",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8a955e9b-f76b-4043-bf10-49f3898a2834",
+                            ConcurrencyStamp = "de3cecbb-99ef-4a3a-b6ca-75d8989b53bf",
                             CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ardasen.96@gmail.com",
                             EmailConfirmed = true,
@@ -219,7 +219,7 @@ namespace Persistence.Migrations
                             NormalizedUserName = "ADMIN",
                             PasswordHash = "AQAAAAEAACcQAAAAECg6f0/tC/kbk70RGXAquYaFgyzsWl8hLjLuA5+eQIHwCAKW0oJtm38wYRjhTNsuvw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "dee8e8ac-0d40-4327-8774-f07c1723eb6f",
+                            SecurityStamp = "198a8f29-5bf1-4ccb-b901-c4b3ea9aec16",
                             Status = 0,
                             TwoFactorEnabled = false,
                             UserName = "admin"

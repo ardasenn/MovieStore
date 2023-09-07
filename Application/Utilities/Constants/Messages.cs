@@ -15,5 +15,6 @@ namespace Application.Utilities.Constants
         public const string NotExist = "Böyle bir kayıt yok";
         public const string SaveFail = "Kayıt işlemi yaparkan bir hata oluştu";
         public const string Fail = "İşlemi yaparkan bir hata oluştu";
+        public const string LoginFail = "Email veya şifer hatalı";
     }
 }

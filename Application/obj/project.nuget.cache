@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gIvmT06eUQfB8t4FHqhrBemSHRrk+oNRePxpnt8MPQOnMyeE+vGmemz8Ilo6JhCMw/7UHvHxpya4ua1Wzu3GhQ==",
+  "dgSpecHash": "Ttf9OhrsuqoyD+rIXzzovbDeZQiIrqwvbvfvFFkPMsa1pNI1XTd4/Rn+xQQhp/keCRBBMKft4ICSQHKFcjREag==",
   "success": true,
-  "projectFilePath": "d:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Application\\Application.csproj",
+  "projectFilePath": "D:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\arda9\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512",
     "C:\\Users\\arda9\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

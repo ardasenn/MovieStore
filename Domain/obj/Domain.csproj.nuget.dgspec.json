@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Domain\\Domain.csproj": {}
+    "D:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "d:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Domain\\Domain.csproj": {
+    "D:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "d:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Domain\\Domain.csproj",
+        "projectPath": "D:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\arda9\\.nuget\\packages\\",
-        "outputPath": "d:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Domain\\obj\\",
+        "outputPath": "D:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\arda9\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -65,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }
