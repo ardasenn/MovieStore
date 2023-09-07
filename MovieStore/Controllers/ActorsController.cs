@@ -1,5 +1,6 @@
 ﻿using Application.DTOs.ActorDTOs;
 using Application.Services;
+using Application.Utilities.Constants;
 using Application.Utilities.Helper;
 using Application.Utilities.Response;
 using Domain.Entities;
@@ -27,7 +28,7 @@ namespace MovieStore.Controllers
         {
             CreateActorDTOValidator validator = new();
             var result = validator.Validate(createActorDTO);
-            GenericResponse<bool> response = new() { IsSuccess=true};
+            GenericResponse<bool> response = new(true);
             if (result.IsValid)
             {
                 response = await actorService.CreateActor(createActorDTO);
@@ -43,7 +44,7 @@ namespace MovieStore.Controllers
         {
             UpdateActorDTOValidator validator = new();
             var result = validator.Validate(updateActorDTO);
-            GenericResponse<bool> response= new() { IsSuccess=true};
+            GenericResponse<bool> response = new(true);
             if (result.IsValid)
             {
                 response = await actorService.UpdateActor(updateActorDTO);
@@ -56,6 +57,20 @@ namespace MovieStore.Controllers
         }
         [HttpGet("AllActor")]
         public async Task<IActionResult> GetAllActor() => Ok(actorService.GetAll());
-       
+        [HttpDelete("DeleteActor")]
+        public async Task<IActionResult> DeleteActor(string id)
+        {
+
+            GenericResponse<bool> response = new(true);
+            if (!string.IsNullOrEmpty(id))
+            {
+                response = await actorService.DeleteActor(id);
+            }
+            else
+            {
+                response.Message = Messages.IdFail;
+            }
+            return Ok(response);
+        }
     }
 }

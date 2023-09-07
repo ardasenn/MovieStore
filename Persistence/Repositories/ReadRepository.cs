@@ -26,7 +26,7 @@ namespace Persistence.Repositories
             return Table.Where(a=>a.Status!=Domain.Enums.Status.Pasive);
         }
 
-        public async Task<T> GetByIdAsync(string id)=>await Table.FindAsync(Guid.Parse(id));
+        public async Task<T> GetByIdAsync(string id)=>await Table.Where(a=>a.Id.ToString()==id && a.Status!=Domain.Enums.Status.Pasive).FirstOrDefaultAsync();
         
 
         public async Task<T> GetSingleAsync(Expression<Func<T, bool>> expression) => await Table.FirstOrDefaultAsync(expression);

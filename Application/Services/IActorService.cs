@@ -23,5 +23,6 @@ namespace Application.Services
         /// <returns></returns>
         Task<object> IsActorExist(string name, string lastName);
         GenericResponse<List<ActorVM>> GetAll();
+        Task<GenericResponse<bool>> DeleteActor(string id);
     }
 }

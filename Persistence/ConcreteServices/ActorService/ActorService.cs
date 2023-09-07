@@ -88,9 +88,9 @@ namespace Persistence.ConcreteServices.ActorService
             }
             return response;
         }
-        public async Task<GenericResponse<bool>> DeleteActor(DeleteActorDTO model)
+        public async Task<GenericResponse<bool>> DeleteActor(string id)
         {
-            var actor = await readRepository.GetByIdAsync(model.Id);
+            var actor = await readRepository.GetByIdAsync(id);
             GenericResponse<bool> response = new(true);
             if (actor == null)
             {
@@ -99,7 +99,7 @@ namespace Persistence.ConcreteServices.ActorService
             }
             else
             {
-                bool result = await writeRepository.RemoveAsync(model.Id.ToString());
+                bool result = await writeRepository.RemoveAsync(id);
                 await writeRepository.SaveAsync();
                 if (result) response.Message = Messages.DeleteSucceeded;
                 else
@@ -110,6 +110,6 @@ namespace Persistence.ConcreteServices.ActorService
 
             }
             return response;
-        }
+        }       
     }
 }
