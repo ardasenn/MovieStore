@@ -2,6 +2,7 @@
 using Application.Services;
 using Application.Utilities.Helper;
 using Application.Utilities.Response;
+using Domain.Entities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -11,7 +12,7 @@ namespace MovieStore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-   
+
     public class ActorsController : ControllerBase
     {
         private readonly IActorService actorService;
@@ -21,12 +22,12 @@ namespace MovieStore.Controllers
             this.actorService = actorService;
         }
         [HttpPost("CreateActor")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult> CreateActor(CreateActorDTO createActorDTO)
         {
             CreateActorDTOValidator validator = new();
             var result = validator.Validate(createActorDTO);
-            GenericResponse<bool> response = new();
+            GenericResponse<bool> response = new() { IsSuccess=true};
             if (result.IsValid)
             {
                 response = await actorService.CreateActor(createActorDTO);
@@ -42,17 +43,19 @@ namespace MovieStore.Controllers
         {
             UpdateActorDTOValidator validator = new();
             var result = validator.Validate(updateActorDTO);
-            GenericResponse<bool> response;
+            GenericResponse<bool> response= new() { IsSuccess=true};
             if (result.IsValid)
             {
                 response = await actorService.UpdateActor(updateActorDTO);
             }
             else
             {
-                response = new();
                 response.ValidationErrors = result.Errors.GetValidationErrors();
             }
             return Ok(response);
         }
+        [HttpGet("AllActor")]
+        public async Task<IActionResult> GetAllActor() => Ok(actorService.GetAll());
+       
     }
 }

@@ -1,4 +1,6 @@
-﻿using Domain.Entities;
+﻿using Application.Utilities.Response;
+using Application.VMs;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +11,6 @@ namespace Application.Repositories.IActorRepositories
 {
     public interface IActorReadRepository : IReadRepository<Actor>
     {
+        GenericResponse<List<Actor>> GetIncludeAll();
     }
 }

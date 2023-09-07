@@ -23,7 +23,7 @@ namespace Persistence.Repositories
 
         public IQueryable<T> GetAll()
         {
-            return Table;
+            return Table.Where(a=>a.Status!=Domain.Enums.Status.Pasive);
         }
 
         public async Task<T> GetByIdAsync(string id)=>await Table.FindAsync(Guid.Parse(id));

@@ -1,5 +1,6 @@
 ﻿using Application.DTOs.ActorDTOs;
 using Application.Utilities.Response;
+using Application.VMs;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,6 @@ namespace Application.Services
         /// <param name="lastName"></param>
         /// <returns></returns>
         Task<object> IsActorExist(string name, string lastName);
-        List<Actor> GetAll();
+        GenericResponse<List<ActorVM>> GetAll();
     }
 }

@@ -3,6 +3,7 @@ using Application.Repositories.IActorRepositories;
 using Application.Services;
 using Application.Utilities.Constants;
 using Application.Utilities.Response;
+using Application.VMs;
 using AutoMapper;
 using Domain.Entities;
 using System;
@@ -31,7 +32,7 @@ namespace Persistence.ConcreteServices.ActorService
         {
             var actor = await readRepository.GetSingleAsync(a => a.FirstName.ToLower() == model.FirstName.ToLower().Trim() && a.LastName.ToLower() == model.LastName.ToLower().Trim());
 
-            GenericResponse<bool> response = new();
+            GenericResponse<bool> response = new(true);
             if (actor != null)
             {
                 response.IsSuccess = false;
@@ -56,12 +57,18 @@ namespace Persistence.ConcreteServices.ActorService
             if (actor != null) return actor.Id;
             else return false;
         }
-        public List<Actor> GetAll() => readRepository.GetAll().ToList();
+        public GenericResponse<List<ActorVM>> GetAll()
+        {
+            GenericResponse<List<ActorVM>> response = new(true);
+            var data = readRepository.GetIncludeAll();
+            response.Data = mapper.Map<List<ActorVM>>(data.Data);
+            return response;
+        }
 
         public async Task<GenericResponse<bool>> UpdateActor(UpdateActorDTO model)
         {
             var actor = await readRepository.GetByIdAsync(model.Id.ToString());
-            GenericResponse<bool> response = new();
+            GenericResponse<bool> response = new(true);
             if (actor == null)
             {
                 response.IsSuccess = false;
@@ -84,7 +91,7 @@ namespace Persistence.ConcreteServices.ActorService
         public async Task<GenericResponse<bool>> DeleteActor(DeleteActorDTO model)
         {
             var actor = await readRepository.GetByIdAsync(model.Id);
-            GenericResponse<bool> response = new();
+            GenericResponse<bool> response = new(true);
             if (actor == null)
             {
                 response.IsSuccess = false;

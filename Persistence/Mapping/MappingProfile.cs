@@ -3,6 +3,7 @@ using Application.DTOs.CommentDTOs;
 using Application.DTOs.CustomerDTOs;
 using Application.DTOs.GenreDTOs;
 using Application.DTOs.MovieDTOs;
+using Application.VMs;
 using AutoMapper;
 using Domain.Entities;
 using System;
@@ -27,6 +28,8 @@ namespace Persistence.Mapping
             CreateMap<UpdateMovieDTO, Movie>();
             CreateMap<CreateCommentDTO, Comment>();
             CreateMap<UpdateCommentDTO, Comment>();
+            CreateMap<Actor, ActorVM>();
+           
         }
     }
 }
