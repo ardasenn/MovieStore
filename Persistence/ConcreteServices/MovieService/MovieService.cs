@@ -10,6 +10,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Application.Utilities.Response;
+using Application.Repositories.IActorRepositories;
+using Microsoft.EntityFrameworkCore;
+using Application.Repositories.IGenreRepositories;
+using Application.VMs;
 
 namespace Persistence.ConcreteServices.MovieService
 {
@@ -18,16 +22,23 @@ namespace Persistence.ConcreteServices.MovieService
         private readonly IMovieReadRepository readRepository;
         private readonly IMovieWriteRepository writeRepository;
         private readonly IMapper mapper;
+        private readonly IActorReadRepository actorReadRepository;
+        private readonly IGenreReadRepository genreReadRepository;
 
-        public MovieService(IMovieReadRepository readRepository,IMovieWriteRepository writeRepository,IMapper mapper)
+        public MovieService(IMovieReadRepository readRepository, IMovieWriteRepository writeRepository, IMapper mapper, IActorReadRepository actorReadRepository, IGenreReadRepository genreReadRepository)
         {
             this.readRepository = readRepository;
             this.writeRepository = writeRepository;
             this.mapper = mapper;
+            this.actorReadRepository = actorReadRepository;
+            this.genreReadRepository = genreReadRepository;
         }
         public async Task<GenericResponse<bool>> CreateMovie(CreateMovieDTO model)
         {
-            var movie=readRepository.GetSingleAsync(a=>a.Name.ToLower()==model.Name.ToLower());
+            var movie = readRepository.GetSingleAsync(a => a.Name.ToLower() == model.Name.ToLower());
+
+            var actorList = actorReadRepository.GetAll();
+            var genreList = genreReadRepository.GetAll();
             GenericResponse<bool> response = new();
 
             if (movie != null)
@@ -37,7 +48,32 @@ namespace Persistence.ConcreteServices.MovieService
             }
             else
             {
-                bool result = await writeRepository.AddAsync(mapper.Map<Movie>(model));
+                Movie newMovie = mapper.Map<Movie>(model);
+                foreach (string actorId in model.ActorIds)//filme aktorleri ekleme
+                {
+                    var actor = await actorList.FirstOrDefaultAsync(a => a.Id.ToString() == actorId);
+                    if (actor != null)
+                        newMovie.Actors.Add(actor);
+                    else
+                    {
+                        response.IsSuccess = false;
+                        response.Message = string.Format("{0} {1}", actorId, Messages.NotExist);
+                        return response;
+                    }
+                }
+                foreach (string genreId in model.GenreIds)//filme genre ekleme
+                {
+                    var genre = await genreList.FirstOrDefaultAsync(a => a.Id.ToString() == genreId);
+                    if (genre != null)
+                        newMovie.Genres.Add(genre);
+                    else
+                    {
+                        response.IsSuccess = false;
+                        response.Message = string.Format("{0} {1}", genreId, Messages.NotExist);
+                        return response;
+                    }
+                }
+                bool result = await writeRepository.AddAsync(newMovie);
                 await writeRepository.SaveAsync();
                 if (result) response.Message = Messages.AddSucceeded;
                 else
@@ -51,9 +87,9 @@ namespace Persistence.ConcreteServices.MovieService
 
         public async Task<GenericResponse<bool>> UpdateMovie(UpdateMovieDTO model)
         {
-           var movie= await readRepository.GetByIdAsync(model.Id);
+            var movie = await readRepository.GetByIdAsync(model.Id);
             GenericResponse<bool> response = new();
-            if(movie == null)
+            if (movie == null)
             {
                 response.IsSuccess = false;
                 response.Message = Messages.NotExist;
@@ -74,11 +110,11 @@ namespace Persistence.ConcreteServices.MovieService
         }
         public async Task<GenericResponse<bool>> DeleteMovie(DeleteMovieDTO model)
         {
-            var movie=await readRepository.GetByIdAsync(model.Id);
+            var movie = await readRepository.GetByIdAsync(model.Id);
             GenericResponse<bool> response = new();
-            if(movie == null)
+            if (movie == null)
             {
-                response.IsSuccess=false;
+                response.IsSuccess = false;
                 response.Message = Messages.NotExist;
             }
             else
@@ -96,6 +132,6 @@ namespace Persistence.ConcreteServices.MovieService
         }
 
         public List<Movie> GetAll() => readRepository.GetAll().ToList();
-        
+
     }
 }

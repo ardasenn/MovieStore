@@ -13,7 +13,7 @@ namespace Application.Utilities.Response
             IsSuccess = succes;
         }
       
-        public bool IsSuccess { get; set; }=false;
+        public bool IsSuccess { get; set; }
         public T Data { get; set; }
         public List<string> ValidationErrors { get; set; }
         public string Message { get; set; }

@@ -28,13 +28,9 @@ namespace MovieStore.Controllers
             var result = validator.Validate(loginDTO);
             GenericResponse<Application.DTOs.Token> response = new();
             if (result.IsValid)
-            {
                 response = await customerService.LoginCustomer(loginDTO);
-            }
             else
-            {
                 response.ValidationErrors = result.Errors.GetValidationErrors();
-            }
             return Ok(response);
         }
         [HttpPost("Register")]
@@ -44,14 +40,10 @@ namespace MovieStore.Controllers
             var result = validator.Validate(createCustomerDTO);
             GenericResponse<bool> response = new(true);
             if (result.IsValid)
-            {
                 response = await customerService.CreateCustomerAsync(createCustomerDTO);
-            }
             else
-            {
                 response.ValidationErrors = result.Errors.GetValidationErrors();
-                response.IsSuccess = false;
-            }
+            response.IsSuccess = false;
             return Ok(response);
         }
     }
