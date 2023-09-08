@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/Slis4aY550GXmE4nCio5kT+IlkpJvIKrK+JXhp0dXivHFOS2LxKMcfW1VKjtTkdml0Nxr/Yq8yB9Qm/1z6eWQ==",
+  "dgSpecHash": "4hUnFSwcj5tLrCxSJdBOSn/0FfrPup0W5VDq+rNp/MqVUsDvvGdnGFUlJNiBD62XM5IHhzcva11jTHcSOiOTlA==",
   "success": true,
-  "projectFilePath": "D:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\MovieStore\\MovieStore.csproj",
+  "projectFilePath": "d:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\MovieStore\\MovieStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\arda9\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\arda9\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

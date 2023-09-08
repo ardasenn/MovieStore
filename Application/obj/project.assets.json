@@ -1959,11 +1959,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Application\\Application.csproj",
+      "projectUniqueName": "d:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "D:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Application\\Application.csproj",
+      "projectPath": "d:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\arda9\\.nuget\\packages\\",
-      "outputPath": "D:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Application\\obj\\",
+      "outputPath": "d:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\arda9\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1980,8 +1980,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Domain\\Domain.csproj"
+            "d:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Domain\\Domain.csproj": {
+              "projectPath": "d:\\ARDA D\\Arda\\YAZILIM\\MyProjects\\MovieStore\\Domain\\Domain.csproj"
             }
           }
         }
