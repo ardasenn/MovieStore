@@ -1,6 +1,6 @@
 ﻿using Application.DTOs;
-using Application.DTOs.ActorDTOs;
 using Application.DTOs.AuthDTOs;
+using Application.DTOs.CustomerDTOs;
 using Application.Services;
 using Application.Utilities.Helper;
 using Application.Utilities.Response;
@@ -32,8 +32,25 @@ namespace MovieStore.Controllers
                 response = await customerService.LoginCustomer(loginDTO);
             }
             else
-            {               
+            {
                 response.ValidationErrors = result.Errors.GetValidationErrors();
+            }
+            return Ok(response);
+        }
+        [HttpPost("Register")]
+        public async Task<IActionResult> Register(CreateCustomerDTO createCustomerDTO)
+        {
+            CreateCustomerDTOValidator validator = new();
+            var result = validator.Validate(createCustomerDTO);
+            GenericResponse<bool> response = new(true);
+            if (result.IsValid)
+            {
+                response = await customerService.CreateCustomerAsync(createCustomerDTO);
+            }
+            else
+            {
+                response.ValidationErrors = result.Errors.GetValidationErrors();
+                response.IsSuccess = false;
             }
             return Ok(response);
         }

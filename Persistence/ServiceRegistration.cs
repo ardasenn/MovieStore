@@ -42,6 +42,7 @@ namespace Persistence
                 options.Password.RequireDigit = false;
                 options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;
+                options.User.RequireUniqueEmail = true;
             }).AddEntityFrameworkStores<MovieDbContext>()
             .AddDefaultTokenProviders();
 
