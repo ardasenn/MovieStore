@@ -1,4 +1,5 @@
 ﻿using Application.Services;
+using Domain.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -21,7 +22,7 @@ namespace Infrastructure.Services.Token
         {
             this.configuration = configuration;
         }
-        public Application.DTOs.Token CreateAccesToken(int second)
+        public Application.DTOs.Token CreateAccesToken(int second, Customer customer)
         {
             Application.DTOs.Token token = new();
 
@@ -34,7 +35,14 @@ namespace Infrastructure.Services.Token
             //Oluşturulacak token ayarlarını veriyoruz.
             token.Expiration = DateTime.Now.AddSeconds(second);
 
-            var securityToken = new JwtSecurityToken(configuration["Token:Issuer"], configuration["Token:Issuer"], null, DateTime.Now.AddMinutes(10), signingCredentials: signingCredentials);
+            JwtSecurityToken securityToken = new(
+                audience: configuration["Token:Issuer"],
+                issuer: configuration["Token:Issuer"],
+                expires: token.Expiration,
+                notBefore: DateTime.UtcNow,
+                signingCredentials: signingCredentials,
+                claims: new List<Claim> { new(ClaimTypes.Name, customer.UserName) }
+                );
             //Token oluşturucu sınıfından bir örnek alalım.
             JwtSecurityTokenHandler tokenHandler = new();
             token.AccessToken = tokenHandler.WriteToken(securityToken);
