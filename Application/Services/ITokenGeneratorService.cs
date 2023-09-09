@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace Application.Services
 {
     public interface ITokenGeneratorService
     {
-        Application.DTOs.Token CreateAccesToken(int second);
+        Application.DTOs.Token CreateAccesToken(int second,Customer customer);
         string CreateRefreshToken();
     }
 }

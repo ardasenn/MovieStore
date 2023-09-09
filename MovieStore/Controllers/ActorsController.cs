@@ -13,7 +13,7 @@ namespace MovieStore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
+    [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
     public class ActorsController : ControllerBase
     {
         private readonly IActorService actorService;
