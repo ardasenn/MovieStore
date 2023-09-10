@@ -136,10 +136,10 @@ namespace Persistence.ConcreteServices.MovieService
             }
             return response;
         }
-        public async Task<GenericResponse<bool>> DeleteMovie(DeleteMovieDTO model)
+        public async Task<GenericResponse<bool>> DeleteMovie(string id)
         {
-            var movie = await readRepository.GetByIdAsync(model.Id);
-            GenericResponse<bool> response = new();
+            var movie = await readRepository.GetByIdAsync(id);
+            GenericResponse<bool> response = new(true);
             if (movie == null)
             {
                 response.IsSuccess = false;
@@ -147,7 +147,7 @@ namespace Persistence.ConcreteServices.MovieService
             }
             else
             {
-                bool result = await writeRepository.RemoveAsync(model.Id);
+                bool result = await writeRepository.RemoveAsync(id);
                 await writeRepository.SaveAsync();
                 if (result) response.Message = Messages.DeleteSucceeded;
                 else
@@ -161,5 +161,38 @@ namespace Persistence.ConcreteServices.MovieService
 
         public List<Movie> GetAll() => readRepository.GetAll().ToList();
 
+        public async Task<GenericResponse<bool>> AddActorToMovie(AddActorToMovieDTO model)
+        {
+            GenericResponse<bool> response = new(true);
+
+            var movie = await readRepository.GetSingleAsync(a => a.Id.ToString() == model.MovieId);
+
+            if (movie == null)
+            {
+                response.IsSuccess = false;
+                response.Message = Messages.NotExist;
+            }
+            else
+            {
+                var actorList = await actorReadRepository.GetAll().ToListAsync();
+                foreach (var item in model.ActorIds)
+                {
+                    if (!movie.Actors.Any(a => a.Id.ToString() == item))
+                    {
+                        var actor = actorList.FirstOrDefault(a => a.Id.ToString() == item);
+                        movie.Actors.Add(actor);
+                    }
+                }
+                bool result = writeRepository.Update(movie);
+                await writeRepository.SaveAsync();
+                if (result) response.Message = Messages.UpdateSucceeded;
+                else
+                {
+                    response.Message = Messages.Fail;
+                    response.IsSuccess = result;
+                }
+            }
+            return response;
+        }
     }
 }

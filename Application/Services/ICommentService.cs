@@ -13,7 +13,7 @@ namespace Application.Services
     {
         Task<GenericResponse<bool>> CreateComment(CreateCommentDTO model);
         Task<GenericResponse<bool>> UpdateComment(UpdateCommentDTO model);
-        Task<GenericResponse<bool>> DeleteComment(DeleteCommentDTO model);
+        Task<GenericResponse<bool>> DeleteComment(string id);
         List<Comment> GetAll();
     }
 }

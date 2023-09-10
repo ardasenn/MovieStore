@@ -13,7 +13,8 @@ namespace Application.Services
     {
         Task<GenericResponse<bool>> CreateMovie(CreateMovieDTO model);
         Task<GenericResponse<bool>> UpdateMovie(UpdateMovieDTO model);
-        Task<GenericResponse<bool>> DeleteMovie(DeleteMovieDTO model);
+        Task<GenericResponse<bool>> DeleteMovie(string id);
         List<Movie> GetAll();
+        Task<GenericResponse<bool>> AddActorToMovie(AddActorToMovieDTO model);
     }
 }

@@ -22,6 +22,8 @@ namespace Persistence.Repositories
         public DbSet<T> Table => db.Set<T>();
         public async Task<bool> AddAsync(T entity)
         {
+            entity.CreationDate = DateTime.Now;
+            entity.Status = Domain.Enums.Status.Active;
             EntityEntry<T> entityEntry = await Table.AddAsync(entity);
             return entityEntry.State == EntityState.Added;
         }
@@ -56,6 +58,7 @@ namespace Persistence.Repositories
         public bool Update(T entity)
         {
             entity.UpdateDate = DateTime.Now;
+            entity.Status= Domain.Enums.Status.Modified;
             EntityEntry<T> entityEntry = Table.Update(entity);
             return entityEntry.State == EntityState.Modified;
         }

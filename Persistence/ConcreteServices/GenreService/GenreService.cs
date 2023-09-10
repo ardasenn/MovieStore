@@ -82,9 +82,9 @@ namespace Persistence.ConcreteServices.GenreService
             }
             return response;
         }
-        public async Task<GenericResponse<bool>> DeleteGenre(DeleteGenreDTO model)
+        public async Task<GenericResponse<bool>> DeleteGenre(string id)
         {
-            var genre = await readRepository.GetByIdAsync(model.Id);
+            var genre = await readRepository.GetByIdAsync(id);
             GenericResponse<bool> response = new();
             if (genre == null)
             {
@@ -95,8 +95,8 @@ namespace Persistence.ConcreteServices.GenreService
             {
                 bool result = writeRepository.Remove(genre);
                 await writeRepository.SaveAsync();
-                if (result)response.Message = Messages.DeleteSucceeded; 
-                else 
+                if (result) response.Message = Messages.DeleteSucceeded;
+                else
                 { response.IsSuccess = false; response.Message = Messages.Fail; }
             }
             return response;

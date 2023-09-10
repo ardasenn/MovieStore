@@ -16,9 +16,9 @@ namespace Domain.Entities
         public string Text { get; set; }
         public int Rate { get; set; } = 1;
         public Guid Id { get; set; }
-        public DateTime CreationDate { get; set; } = DateTime.Now;
+        public DateTime CreationDate { get; set; }
         public DateTime? UpdateDate { get; set; }
         public DateTime? DeleteDate { get; set; }
-        public Status Status { get; set; } = Status.Active;
+        public Status Status { get; set; }
     }
 }

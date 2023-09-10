@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection.Metadata.Ecma335;
 
 namespace MovieStore.Controllers
 {
@@ -23,7 +24,6 @@ namespace MovieStore.Controllers
             this.actorService = actorService;
         }
         [HttpPost("CreateActor")]
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult> CreateActor(CreateActorDTO createActorDTO)
         {
             CreateActorDTOValidator validator = new();
@@ -58,11 +58,8 @@ namespace MovieStore.Controllers
             return Ok(response);
         }
         [HttpGet("AllActor")]
-        public async Task<IActionResult> GetAllActor()
-        {
-            var response = actorService.GetAll();
-            return Ok(response);
-        }
+        public async Task<IActionResult> GetAllActor() => Ok(actorService.GetAll());
+
         [HttpDelete("DeleteActor")]
         public async Task<IActionResult> DeleteActor(string id)
         {

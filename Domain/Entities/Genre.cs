@@ -17,10 +17,10 @@ namespace Domain.Entities
         }
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public DateTime CreationDate { get; set; } = DateTime.Now;
+        public DateTime CreationDate { get; set; }
         public DateTime? UpdateDate { get; set; }
         public DateTime? DeleteDate { get; set; }
-        public Status Status { get; set; } = Status.Active;
+        public Status Status { get; set; }
         public List<Movie> Movies { get; set; }
 
 
