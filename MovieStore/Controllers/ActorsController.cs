@@ -13,7 +13,7 @@ namespace MovieStore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ActorsController : ControllerBase
     {
         private readonly IActorService actorService;
@@ -36,6 +36,7 @@ namespace MovieStore.Controllers
             else
             {
                 response.ValidationErrors = result.Errors.GetValidationErrors();
+                response.IsSuccess = false;
             }
             return Ok(response);
         }
@@ -52,11 +53,16 @@ namespace MovieStore.Controllers
             else
             {
                 response.ValidationErrors = result.Errors.GetValidationErrors();
+                response.IsSuccess = false;
             }
             return Ok(response);
         }
         [HttpGet("AllActor")]
-        public async Task<IActionResult> GetAllActor() => Ok(actorService.GetAll());
+        public async Task<IActionResult> GetAllActor()
+        {
+            var response = actorService.GetAll();
+            return Ok(response);
+        }
         [HttpDelete("DeleteActor")]
         public async Task<IActionResult> DeleteActor(string id)
         {
@@ -69,6 +75,7 @@ namespace MovieStore.Controllers
             else
             {
                 response.Message = Messages.IdFail;
+                response.IsSuccess = false;
             }
             return Ok(response);
         }

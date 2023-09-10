@@ -57,7 +57,7 @@ namespace Persistence.ConcreteServices.CustomerService
                 return response;
             }
             await userManager.RemoveAuthenticationTokenAsync(customer, "Movie", "AccessToken");
-            Token token = tokenGenerator.CreateAccesToken(60 * 60,customer);
+            Token token = tokenGenerator.CreateAccesToken(60*60,customer);
             await userManager.SetAuthenticationTokenAsync(customer, "Movie", "AccessToken", token.AccessToken);
             response.IsSuccess = true;
             response.Data = token;

@@ -32,6 +32,6 @@ namespace Domain.Entities
         public DateTime? UpdateDate { get; set; }
         public DateTime? DeleteDate { get; set; }
         public Status Status { get; set; } = Status.Active;
-        public int SalesQuantity { get; set; }
+        public int SalesQuantity { get; set; }=0;
     }
 }

@@ -35,7 +35,7 @@ namespace Persistence.ConcreteServices.MovieService
         }
         public async Task<GenericResponse<bool>> CreateMovie(CreateMovieDTO model)
         {
-            var movie = readRepository.GetSingleAsync(a => a.Name.ToLower() == model.Name.ToLower());
+            var movie = await readRepository.GetSingleAsync(a => a.Name.ToLower() == model.Name.ToLower());
 
             var actorList = actorReadRepository.GetAll();
             var genreList = genreReadRepository.GetAll();
@@ -88,7 +88,9 @@ namespace Persistence.ConcreteServices.MovieService
         public async Task<GenericResponse<bool>> UpdateMovie(UpdateMovieDTO model)
         {
             var movie = await readRepository.GetByIdAsync(model.Id);
-            GenericResponse<bool> response = new();
+            var actorList = actorReadRepository.GetAll();
+            var genreList = genreReadRepository.GetAll();
+            GenericResponse<bool> response = new(true);
             if (movie == null)
             {
                 response.IsSuccess = false;
@@ -97,6 +99,32 @@ namespace Persistence.ConcreteServices.MovieService
             else
             {
                 mapper.Map(model, movie);
+                movie.Actors.Clear();
+                movie.Genres.Clear();
+                foreach (string actorId in model.ActorsId)
+                {
+                    var actor = await actorList.FirstOrDefaultAsync(a => a.Id.ToString() == actorId);
+                    if (actor != null)
+                        movie.Actors.Add(actor);
+                    else
+                    {
+                        response.IsSuccess = false;
+                        response.Message = string.Format("{0} {1}", actorId, Messages.NotExist);
+                        return response;
+                    }
+                }
+                foreach (string genreId in model.GenresId)
+                {
+                    var genre = await genreList.FirstOrDefaultAsync(a => a.Id.ToString() == genreId);
+                    if (genre != null)
+                        movie.Genres.Add(genre);
+                    else
+                    {
+                        response.IsSuccess = false;
+                        response.Message = string.Format("{0} {1}", genreId, Messages.NotExist);
+                        return response;
+                    }
+                }
                 bool result = writeRepository.Update(movie);
                 await writeRepository.SaveAsync();
                 if (result) response.Message = Messages.UpdateSucceeded;

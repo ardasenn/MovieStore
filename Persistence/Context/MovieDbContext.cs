@@ -36,19 +36,7 @@ namespace Persistence.Context
 
         private void Seed(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Customer>().HasData(
-                new Customer
-                {
-                    UserName = "admin",
-                    FirstName = "admin",
-                    LastName = "admin",
-                    Id = Guid.NewGuid(),
-                    Email = "ardasen.96@gmail.com",
-                    EmailConfirmed = true,
-                    NormalizedEmail = "ARDASEN.96@GMAIL.COM",
-                    NormalizedUserName = "ADMIN",
-                    PasswordHash = "AQAAAAEAACcQAAAAECg6f0/tC/kbk70RGXAquYaFgyzsWl8hLjLuA5+eQIHwCAKW0oJtm38wYRjhTNsuvw=="
-                });
+            DataGenerator.Initialize(modelBuilder);
         }
     }
 }

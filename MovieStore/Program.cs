@@ -17,7 +17,11 @@ builder.Services.AddInfrastructureServices();
 
 
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+}); // burasý ACtorleri çekercen filmleri ile çektiðim için bir döngü oluþturuyor. Buda json'a çevirirken hata verdirdiði için eklendi.
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -26,14 +30,14 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     options.RequireHttpsMetadata = false;
     options.TokenValidationParameters = new()
     {
+        ValidateLifetime = true,
         ValidateAudience = true,
-        ValidateIssuer = true,
-        ValidateLifetime = false,
+        ValidateIssuer = true,        
         ValidateIssuerSigningKey = true,
         ValidIssuer = builder.Configuration["Token:Issuer"],
         ValidAudience = builder.Configuration["Token:Issuer"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:SecurityKey"])),
-        NameClaimType=ClaimTypes.Name
+        NameClaimType = ClaimTypes.Name
     };
 });
 

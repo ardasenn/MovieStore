@@ -25,7 +25,7 @@ namespace Persistence.Repositories.ActorRepository
         public GenericResponse<List<Actor>> GetIncludeAll()
         {
             GenericResponse<List<Actor>> response = new(true);
-            response.Data = db.Actors.Where(a => a.Status != Status.Pasive).Include(a => a.Movies).ToList();
+            response.Data = db.Actors.Where(a => a.Status != Status.Pasive).ToList();
             return response;
         }
     }
