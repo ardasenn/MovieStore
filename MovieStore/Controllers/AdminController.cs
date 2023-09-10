@@ -87,6 +87,23 @@ namespace MovieStore.Controllers
             }
             return Ok(response);
         }
+        [HttpPatch("AddGenreToMovie")]
+        public async Task<IActionResult> AddGenreToMovie(AddGenreToMovieDTO addGenreToMovieDTO)
+        {
+            AddGenreToMovieDTOValidator validator = new();
+            var result = validator.Validate(addGenreToMovieDTO);
+            GenericResponse<bool> response = new(true);
+            if (result.IsValid)
+            {
+                response = await movieService.AddGenreToMovie(addGenreToMovieDTO);
+            }
+            else
+            {
+                response.ValidationErrors = result.Errors.GetValidationErrors();
+                response.IsSuccess = false;
+            }
+            return Ok(response);
+        }
     }
 
 }

@@ -1,3 +1,5 @@
+# Merhaba bu burada proje ile uğraştığım günlerdeki kazanımları ve sorunları aktarıyor olacağım. Bazı günleri toplu şekilde ele alabilirim.
+
 ## Gün 1
 
 - Proje katmanları oluşturuldu
@@ -33,6 +35,15 @@
 ## Gün 7
 
 - Projeye yaklaşık 6 ay ara vermiştim. (Vay be ne kadar da hızlı ilerlemiş zaman)
-- Bugün yani 09.04.2023 tarihinde projede yenilemeler yaptım. Database olarak MSSQL kullanacağım
+- Bugün projede yenilemeler yaptım. Database olarak MSSQL kullanacağım
 - .Net versiyonunu 5'ten 6'ya çektim.
 - Director sınıfını kaldırdım, Actor'de bir bool değişken ile kontrol etmek istedim.
+
+## Gün 8 - 9 - 10
+
+- JWT Authentication işlemleri tamamlandı. Burada beni zorlayan şey daha önce JWT üretip kullanmıştım ama JWT'nin sahip olduğu payload bölümünü boş bırakmıştım. Bu projede de o şekilde kullanmak istedim ama hata aldım ve bu hatanın payloadın boş olmasından kaynaklandığını tespit etmem 6 saatime mal oldu :)
+- Adminin yaptığı işlemler olan film ekleme, güncelleme , filme tür ve actor ekleme silme gibi endpointleri hazırladım
+- Actorlerin için CRUD operasyonlarını tamamladım. Burada bir yeni bilgi öğrendim. Kurmuş olduğum yapıda Actor ve Movie many to many ilişkide olduğu için iki entity arasında koleksiyon şeklinde bulunuyor. Tüm aktörleri JSON olarak vermeye çalıştığım zaman bu koleksiyon sarmalına girdiğini ve bunun için bu tarz zincir döngü oluşturan yapıları JSON'nun defaultta çeviremediğini fark ettim. Bu hatanın çözümü için program.cs içerisinde bir ayar yapmam gerekti detaylar orada mevcut.
+- Bu uygulamada kullanılacak endpointler için Postman'da bir koleksiyon oluşturdum proje sonlandığında READ.me dosyasına eklemesini yapacağım.
+- Tek bir değer aldığım endpointlerde mesela Id gibi bu yapıları query'den çekme kararı aldım.
+- Proje initialize edildiğinde gözükmesi için dummy data ekledim.

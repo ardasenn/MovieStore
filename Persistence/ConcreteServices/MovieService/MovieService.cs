@@ -194,5 +194,39 @@ namespace Persistence.ConcreteServices.MovieService
             }
             return response;
         }
+
+        public async Task<GenericResponse<bool>> AddGenreToMovie(AddGenreToMovieDTO model)
+        {
+            GenericResponse<bool> response = new(true);
+
+            var movie = await readRepository.GetSingleAsync(a => a.Id.ToString() == model.MovieId);
+
+            if (movie == null)
+            {
+                response.IsSuccess = false;
+                response.Message = Messages.NotExist;
+            }
+            else
+            {
+                var genreList = await genreReadRepository.GetAll().ToListAsync();
+                foreach (var item in model.GenreIds)
+                {
+                    if (!movie.Actors.Any(a => a.Id.ToString() == item))
+                    {
+                        var genre = genreList.FirstOrDefault(a => a.Id.ToString() == item);
+                        movie.Genres.Add(genre);
+                    }
+                }
+                bool result = writeRepository.Update(movie);
+                await writeRepository.SaveAsync();
+                if (result) response.Message = Messages.UpdateSucceeded;
+                else
+                {
+                    response.Message = Messages.Fail;
+                    response.IsSuccess = result;
+                }
+            }
+            return response;
+        }
     }
 }

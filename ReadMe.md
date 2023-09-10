@@ -4,11 +4,11 @@ Bu uygulamada kullanıcılar siteye kayıt olup filmler alabilmektelerdir.Film e
 
 ## Neden bu projeyi yapıyorum/yaptım ?
 
-Bugün gün olarak 27/10/2022 tarihinde gece vaktinde ilk commiti atıyorum. Yaklaşık 7 aylık yoğun bir eğitimden çıktım. Aktif olarak stajdayım arta kalan vakitlerimde bu projeyi geliştirmeyi ve şimdilik deadline 14/11/2022 olmasını planlıyorum( Umarım bir aksaklık olmaz :)). Amacım aslında burada günlük tutarak karşılaştığım önemli sorunları dile getirmek ve nasıl bir çözüm yolu izlediğimi paylaşmak olacak. Merak etmeyin burada tamamıyla dürüst olacağım.
+Aktif olarak çalışıyorum arta kalan vakitlerimde bu projeyi geliştirmeyi planlıyorum. Hepimiz iş yerlerinde belirli yapılar ile çalışmaktayız. Kendi başıma geliştirmek istediğim, yeni bilgiler öğrenmeyi planladığım ve uyguladığım bir proje olmasını istiyorum.
 
 ### Kullanılacak Yaklaşım ve Teknolojiler
 
-- Proje katmanlı mimari ile hazırlanacak
+- Proje tabiki katmanlı mimari ile hazırlanacak
 - Onion Architecture
 - Database tarafında MSSQL, ORM olarak EntityFrameworkCore
 - Backend .NetCore 6
@@ -19,7 +19,6 @@ Bugün gün olarak 27/10/2022 tarihinde gece vaktinde ilk commiti atıyorum. Yak
 - Jwt token altyapısı ile kullanıcı Authentication işlemlerinin kurgulanması ve kontrolü
 - UnitTest yazımı
 - Custom Middleware yazımı ve kullanılması
-- Frontend tarafında session veya cookie ile kullanıcı hatırlanılması
+- Frontend tarafında React ile geliştirme yapıp tecrübelenme
 - Onion Architecture bu proje ile öğrenmeyi amaçlıyorum. Bu design pattern ile ilk projem :)
-
----
+- Deployment süreçleri
