@@ -15,11 +15,11 @@ namespace MovieStore.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class AdminController : ControllerBase
+    public class MovieController : ControllerBase
     {
         private readonly IMovieService movieService;
 
-        public AdminController(IMovieService movieService)
+        public MovieController(IMovieService movieService)
         {
             this.movieService = movieService;
         }

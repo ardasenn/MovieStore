@@ -28,7 +28,7 @@ namespace MovieStore.Controllers
         {
             CreateActorDTOValidator validator = new();
             var result = validator.Validate(createActorDTO);
-            GenericResponse<bool> response = new(true);
+            GenericResponse<bool> response = new();
             if (result.IsValid)
             {
                 response = await actorService.CreateActor(createActorDTO);
@@ -45,7 +45,7 @@ namespace MovieStore.Controllers
         {
             UpdateActorDTOValidator validator = new();
             var result = validator.Validate(updateActorDTO);
-            GenericResponse<bool> response = new(true);
+            GenericResponse<bool> response = new();
             if (result.IsValid)
             {
                 response = await actorService.UpdateActor(updateActorDTO);
@@ -64,7 +64,7 @@ namespace MovieStore.Controllers
         public async Task<IActionResult> DeleteActor(string id)
         {
 
-            GenericResponse<bool> response = new(true);
+            GenericResponse<bool> response = new();
             if (!string.IsNullOrEmpty(id))
             {
                 response = await actorService.DeleteActor(id);

@@ -60,8 +60,8 @@ namespace Persistence.ConcreteServices.ActorService
         public GenericResponse<List<ActorVM>> GetAll()
         {
             GenericResponse<List<ActorVM>> response = new(true);
-            var data = readRepository.GetIncludeAll();
-            response.Data = mapper.Map<List<ActorVM>>(data.Data);
+            var data = readRepository.GetAll();
+            response.Data = mapper.Map<List<ActorVM>>(data);
             return response;
         }
 
@@ -110,6 +110,6 @@ namespace Persistence.ConcreteServices.ActorService
 
             }
             return response;
-        }       
+        }
     }
 }

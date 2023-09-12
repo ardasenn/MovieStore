@@ -1,5 +1,6 @@
 ﻿using Application.DTOs.AuthDTOs;
 using Application.DTOs.CustomerDTOs;
+using Application.DTOs.GiveOrderDTO;
 using Application.Utilities.Response;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace Application.Services
     public interface ICustomerService
     {
         Task<GenericResponse<bool>> CreateCustomerAsync(CreateCustomerDTO model);
-        Task<GenericResponse<Application.DTOs.Token>> LoginCustomer(LoginDTO model);
+        Task<GenericResponse<Application.DTOs.Token>> LoginCustomerAsync(LoginDTO model);
+        Task<GenericResponse<bool>> CreateOrderAsync(GiveOrderDTO model);
     }
 }

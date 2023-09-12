@@ -28,7 +28,7 @@ namespace MovieStore.Controllers
             var result = validator.Validate(loginDTO);
             GenericResponse<Application.DTOs.Token> response = new();
             if (result.IsValid)
-                response = await customerService.LoginCustomer(loginDTO);
+                response = await customerService.LoginCustomerAsync(loginDTO);
             else
                 response.ValidationErrors = result.Errors.GetValidationErrors();
             return Ok(response);

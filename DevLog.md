@@ -47,3 +47,9 @@
 - Bu uygulamada kullanılacak endpointler için Postman'da bir koleksiyon oluşturdum proje sonlandığında READ.me dosyasına eklemesini yapacağım.
 - Tek bir değer aldığım endpointlerde mesela Id gibi bu yapıları query'den çekme kararı aldım.
 - Proje initialize edildiğinde gözükmesi için dummy data ekledim.
+
+## Gün 11
+
+- Genreler için controller oluşturuldu, CRUD operasyonları sağlıklı çalışıyor
+- Yapımda Customer'lar Order verebiliyor ve bu orderlar Movieler içerebiliyor. Bu işlemleri nere yapmalıyım kararı beni açıkcası düşündürdü.Bu işlem için OrderController açıp orada mı gerçekleştirmeliyim yoksa CustomerController'da bunu halletsem olur mu şeklinde düşüncelerden sonra kararım Customer bu işlemi yaptığı için bu Controller altında toplamaktan yana oldu. Benzer mantıkla bu işleri servis olarakta CustomerService'e yükledim.
+- Sipariş oluşturma endpointi oluşturuldu

@@ -29,7 +29,7 @@ namespace Persistence.Mapping
             CreateMap<CreateCommentDTO, Comment>();
             CreateMap<UpdateCommentDTO, Comment>();
             CreateMap<Actor, ActorVM>();
-           
+            CreateMap<Genre, GenreVM>();
         }
     }
 }

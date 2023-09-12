@@ -1,5 +1,6 @@
 ﻿using Application.DTOs.GenreDTOs;
 using Application.Utilities.Response;
+using Application.VMs;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,9 @@ namespace Application.Services
 {
     public interface IGenreService
     {
-        Task<GenericResponse<bool>> CreateGenre(CreateGenreDTO model);
-        Task<GenericResponse<bool>> UpdateGenre(UpdateGenreDTO model);
-        Task<GenericResponse<bool>> DeleteGenre(string id);
-        List<Genre> GetAll();
+        Task<GenericResponse<bool>> CreateGenreAsync(CreateGenreDTO model);
+        Task<GenericResponse<bool>> UpdateGenreAsync(UpdateGenreDTO model);
+        Task<GenericResponse<bool>> DeleteGenreAsync(string id);
+        GenericResponse<List<GenreVM>> GetAll();
     }
 }
