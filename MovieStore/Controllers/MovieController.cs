@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Persistence.ConcreteServices.ActorService;
+using Persistence.ConcreteServices.MovieService;
 
 namespace MovieStore.Controllers
 {
@@ -104,6 +105,8 @@ namespace MovieStore.Controllers
             }
             return Ok(response);
         }
-    }
+        [HttpGet("AllMovies")]
+        public async Task<IActionResult> GetAllMovie() => Ok(movieService.GetAll());
 
+    }
 }

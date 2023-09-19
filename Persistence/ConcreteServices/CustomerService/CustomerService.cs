@@ -14,6 +14,8 @@ using Application.DTOs;
 using Application.DTOs.GiveOrderDTO;
 using Application.Repositories.IMovieRepositories;
 using Application.Repositories.IOrderRepositories;
+using Application.VMs;
+using Application.Repositories.IActorRepositories;
 
 namespace Persistence.ConcreteServices.CustomerService
 {
@@ -24,14 +26,18 @@ namespace Persistence.ConcreteServices.CustomerService
         private readonly ITokenGeneratorService tokenGenerator;
         private readonly IMovieReadRepository movieReadRepository;
         private readonly IOrderWriteRepository orderWriteRepository;
+        private readonly IOrderReadRepository orderReadRepository;
+        private readonly IActorReadRepository actorReadRepository;
 
-        public CustomerService(UserManager<Customer> userManager, IMapper mapper, ITokenGeneratorService tokenGenerator, IMovieReadRepository movieReadRepository, IOrderWriteRepository orderWriteRepository)
+        public CustomerService(UserManager<Customer> userManager, IMapper mapper, ITokenGeneratorService tokenGenerator, IMovieReadRepository movieReadRepository, IOrderWriteRepository orderWriteRepository, IOrderReadRepository orderReadRepository, IActorReadRepository actorReadRepository)
         {
             this.userManager = userManager;
             this.mapper = mapper;
             this.tokenGenerator = tokenGenerator;
             this.movieReadRepository = movieReadRepository;
             this.orderWriteRepository = orderWriteRepository;
+            this.orderReadRepository = orderReadRepository;
+            this.actorReadRepository = actorReadRepository;
         }
         public async Task<GenericResponse<bool>> CreateCustomerAsync(CreateCustomerDTO model)
         {
@@ -87,6 +93,35 @@ namespace Persistence.ConcreteServices.CustomerService
             return response;
         }
 
+        public async Task<GenericResponse<List<UserMovie>>> GetUserMovie(string id)
+        {
+            GenericResponse<List<UserMovie>> response = new();
+            response.Data = new();
+            var customer = await userManager.FindByIdAsync(id);
+            var actorList = actorReadRepository.GetAll().ToList();
+            if (customer is null)
+            {
+                response.Message = Messages.NotExist;
+                response.IsSuccess = false;
+            }
+            else
+            {
+                List<Order> orderList = orderReadRepository.GetWhere(a => a.Customer.Id.ToString() == id).ToList();
+                foreach (var item in orderList)
+                {
+                    response.Data.AddRange(mapper.Map<List<UserMovie>>(item.MovieList));
+                }
+                foreach (var item in response.Data)
+                {
+                    item.DirectorFullName = actorList.Where(a => a.Id.ToString() == item.DirectorId).Select(a => new
+                    {
+                        FullName = a.FirstName + " " + a.LastName
+                    }).FirstOrDefault().FullName;
+                }
+            }
+            return response;
+        }
+
         public async Task<GenericResponse<Application.DTOs.Token>> LoginCustomerAsync(LoginDTO model)
         {
             GenericResponse<Application.DTOs.Token> response = new();
@@ -113,5 +148,8 @@ namespace Persistence.ConcreteServices.CustomerService
 
 
         }
+
+
+
     }
 }

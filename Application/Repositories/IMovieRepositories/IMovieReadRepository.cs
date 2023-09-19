@@ -9,5 +9,6 @@ namespace Application.Repositories.IMovieRepositories
 {
     public interface IMovieReadRepository : IReadRepository<Movie>
     {
+        IQueryable<Movie> GetAllMovie();
     }
 }

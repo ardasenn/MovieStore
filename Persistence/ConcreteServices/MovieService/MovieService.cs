@@ -159,7 +159,19 @@ namespace Persistence.ConcreteServices.MovieService
             return response;
         }
 
-        public List<Movie> GetAll() => readRepository.GetAll().ToList();
+        public GenericResponse<List<MovieVM>> GetAll()
+        {
+            GenericResponse<List<MovieVM>> response = new();
+            var movieList = readRepository.GetAllMovie().ToList();
+            var actorList = actorReadRepository.GetAll().ToList();
+            response.Data = mapper.Map<List<MovieVM>>(movieList);
+            foreach (var item in response.Data)
+            {
+                var actor = actorList.Where(a => a.Id.ToString() == item.DirectorId).FirstOrDefault();
+                item.DirectorFullName = string.Format("{0} {1}", actor.FirstName, actor.LastName);
+            }
+            return response;
+        }
 
         public async Task<GenericResponse<bool>> AddActorToMovie(AddActorToMovieDTO model)
         {

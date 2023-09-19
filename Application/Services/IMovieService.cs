@@ -1,5 +1,6 @@
 ﻿using Application.DTOs.MovieDTOs;
 using Application.Utilities.Response;
+using Application.VMs;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace Application.Services
         Task<GenericResponse<bool>> CreateMovie(CreateMovieDTO model);
         Task<GenericResponse<bool>> UpdateMovie(UpdateMovieDTO model);
         Task<GenericResponse<bool>> DeleteMovie(string id);
-        List<Movie> GetAll();
+        GenericResponse<List<MovieVM>> GetAll();
         Task<GenericResponse<bool>> AddActorToMovie(AddActorToMovieDTO model);
         Task<GenericResponse<bool>> AddGenreToMovie(AddGenreToMovieDTO model);
     }

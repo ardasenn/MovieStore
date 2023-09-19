@@ -21,7 +21,7 @@ namespace Persistence.Repositories.ActorRepository
         {
             this.db = db;
         }
-
+       
         public GenericResponse<List<Actor>> GetIncludeAll()
         {
             GenericResponse<List<Actor>> response = new(true);
