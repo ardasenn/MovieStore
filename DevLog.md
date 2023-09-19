@@ -53,3 +53,10 @@
 - Genreler için controller oluşturuldu, CRUD operasyonları sağlıklı çalışıyor
 - Yapımda Customer'lar Order verebiliyor ve bu orderlar Movieler içerebiliyor. Bu işlemleri nere yapmalıyım kararı beni açıkcası düşündürdü.Bu işlem için OrderController açıp orada mı gerçekleştirmeliyim yoksa CustomerController'da bunu halletsem olur mu şeklinde düşüncelerden sonra kararım Customer bu işlemi yaptığı için bu Controller altında toplamaktan yana oldu. Benzer mantıkla bu işleri servis olarakta CustomerService'e yükledim.
 - Sipariş oluşturma endpointi oluşturuldu
+
+## Gün 12
+
+- Unit test altyapısı ve ayarlamaları yapıldı.
+- Actor eklemek için unit test yazmayı denedim ama teorik olarak bu konuda çok eksiğimin olduğunu düşünüyorum. Mesela benim kullanmış olduğum patterne göre test ayarlarını yaptığım CommonFixtureTest clasının nasıl olmasını gerektiği tam kavrayamadım.
+- Bu konu üzerine daha fazla makale okuyup tekrar dönmeyi planlıyorum
+- Bir çok endpoint hazır olduğu için artık bugünden sonra React projesine geçiş yapacağım eksiklik olması dahilinde tabiki backende dönüş yaparım.

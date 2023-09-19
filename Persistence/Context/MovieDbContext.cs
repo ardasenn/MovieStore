@@ -20,17 +20,17 @@ namespace Persistence.Context
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Comment> Comments { get; set; }
-        
+        public DbSet<Genre> Genres { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new CommentConfig());
             modelBuilder.ApplyConfiguration(new CustomerConfig());
-            modelBuilder.ApplyConfiguration(new ActorConfig());           
+            modelBuilder.ApplyConfiguration(new ActorConfig());
             modelBuilder.ApplyConfiguration(new GenreConfig());
             modelBuilder.ApplyConfiguration(new MovieConfig());
             modelBuilder.ApplyConfiguration(new OrderConfig());
-            Seed(modelBuilder);           
+            Seed(modelBuilder);
             base.OnModelCreating(modelBuilder);
         }
 
