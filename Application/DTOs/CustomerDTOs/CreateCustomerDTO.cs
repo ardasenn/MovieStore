@@ -24,6 +24,8 @@ namespace Application.DTOs.CustomerDTOs
         {
             RuleFor(a => a.FirstName).NotEmpty().NotNull().MaximumLength(100);
             RuleFor(a => a.LastName).NotEmpty().NotNull().MaximumLength(100);
+            RuleFor(a => a.Password).Equal(b => b.PasswordConfirm).NotNull().NotEmpty();
+            RuleFor(a => a.PhoneNumber).NotEmpty();
             //todo validasyonlar
         }
     }

@@ -14,7 +14,7 @@ export const Navbar = () => {
         <Link to="/" className=" hover:text-zinc-500">
           Ana Sayfa
         </Link>
-        {!loggedIn && (
+        {loggedIn && (
           <>
             <Link to="/orders" className=" hover:text-zinc-500">
               Siparişlerim
@@ -26,9 +26,9 @@ export const Navbar = () => {
             </Link>
           </>
         )}
-        {loggedIn && (
+        {!loggedIn && (
           <>
-            <Link>
+            <Link to="register">
               <button className=" hover:text-black bg-green-500 w-24 h-10 rounded-full">
                 Kayıt ol
               </button>

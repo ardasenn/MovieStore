@@ -60,3 +60,11 @@
 - Actor eklemek için unit test yazmayı denedim ama teorik olarak bu konuda çok eksiğimin olduğunu düşünüyorum. Mesela benim kullanmış olduğum patterne göre test ayarlarını yaptığım CommonFixtureTest clasının nasıl olmasını gerektiği tam kavrayamadım.
 - Bu konu üzerine daha fazla makale okuyup tekrar dönmeyi planlıyorum
 - Bir çok endpoint hazır olduğu için artık bugünden sonra React projesine geçiş yapacağım eksiklik olması dahilinde tabiki backende dönüş yaparım.
+
+## Gün 13
+
+- Projede frontend'e geçiş sağladım. İlgili yapı create-react-app ile oluşturuldu
+- İşleyiş olarak css tarafında Tailwind kullanma kararı aldım.
+- Navbar componenti tamamlandı.
+- React router 6 yı projede kullanıyor olacağım
+- Validasyonlar için ilk tercihim yup'tan yanaydı ama react-hook-form diye bir kütüphane buldum internette basit validasyonları bununla yapacağım daha kompleks yapılarda yup ile schema oluşturmaya yöneleceğim.
