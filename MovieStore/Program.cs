@@ -20,7 +20,7 @@ builder.Services.AddInfrastructureServices();
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
-}); // burasý ACtorleri çekercen filmleri ile çektiðim için bir döngü oluþturuyor. Buda json'a çevirirken hata verdirdiði için eklendi.
+}); // burasï¿½ ACtorleri ï¿½ekercen filmleri ile ï¿½ektiï¿½im iï¿½in bir dï¿½ngï¿½ oluï¿½turuyor. Buda json'a ï¿½evirirken hata verdirdiï¿½i iï¿½in eklendi.
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -32,13 +32,23 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     {
         ValidateLifetime = true,
         ValidateAudience = true,
-        ValidateIssuer = true,        
+        ValidateIssuer = true,
         ValidateIssuerSigningKey = true,
         ValidIssuer = builder.Configuration["Token:Issuer"],
         ValidAudience = builder.Configuration["Token:Issuer"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:SecurityKey"])),
         NameClaimType = ClaimTypes.Name
     };
+});
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAnyOrigin",
+        builder =>
+        {
+            builder.AllowAnyOrigin();
+            builder.AllowAnyHeader();
+            builder.AllowAnyMethod();
+        });
 });
 
 var app = builder.Build();
@@ -56,7 +66,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseCors("AllowAnyOrigin");
 app.MapControllers();
 
 app.Run();

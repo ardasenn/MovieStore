@@ -1,7 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { customerSchema } from "../SignIn/validation";
+import { customerSchema } from "./validation";
+import { fetchRegister } from "../../../ApiCall";
+
 export const Register = () => {
   const {
     register,
@@ -9,11 +11,18 @@ export const Register = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(customerSchema) });
 
+  const onSubmit = async (data) => {
+    try {
+      data.phoneNumber = String(data.phoneNumber);
+      const registerResponse = await fetchRegister(data);
+      console.log("register", registerResponse);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <form
-      onSubmit={handleSubmit((data) => {
-        console.log(data);
-      })}
+      onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col items-center pt-5 space-y-2 bg-slate-50  "
     >
       <h3 className="font-bold text-4xl mb-5">Sign Up</h3>

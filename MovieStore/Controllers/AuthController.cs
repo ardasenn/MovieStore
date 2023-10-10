@@ -42,8 +42,10 @@ namespace MovieStore.Controllers
             if (result.IsValid)
                 response = await customerService.CreateCustomerAsync(createCustomerDTO);
             else
+            {
                 response.ValidationErrors = result.Errors.GetValidationErrors();
-            response.IsSuccess = false;
+                response.IsSuccess = false;
+            }
             return Ok(response);
         }
     }
