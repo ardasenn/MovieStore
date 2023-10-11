@@ -8,10 +8,11 @@ const AuthProvider = ({ children }) => {
 
   const login = (data) => {
     setLoggedIn(true);
-    setUser(data);
+    setUser(data.id);
+    localStorage.setItem("access-token-moviestore", data.accessToken);
   };
 
-  const values = { loggedIn, user, login };
+  const values = { loggedIn, user, login, setLoggedIn };
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };
 

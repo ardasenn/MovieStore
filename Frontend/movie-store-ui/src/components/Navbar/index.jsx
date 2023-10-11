@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
 export const Navbar = () => {
-  const { loggedIn } = useAuth();
+  const { loggedIn, setLoggedIn } = useAuth();
 
   return (
     <div className="navbar-container flex h-16 justify-between items-center bg-slate-800 text-zinc-100 font-bold px-4">
@@ -20,7 +20,10 @@ export const Navbar = () => {
               Siparişlerim
             </Link>
             <Link>
-              <button className=" hover:text-black bg-yellow-500 w-24 h-10 rounded-full">
+              <button
+                onClick={() => setLoggedIn(false)}
+                className=" hover:text-black bg-yellow-500 w-24 h-10 rounded-full"
+              >
                 Çıkış yap
               </button>
             </Link>
@@ -33,7 +36,7 @@ export const Navbar = () => {
                 Kayıt ol
               </button>
             </Link>
-            <Link>
+            <Link to="signin">
               <button className=" hover:text-black bg-yellow-500 w-24 h-10 rounded-full">
                 Giriş Yap
               </button>

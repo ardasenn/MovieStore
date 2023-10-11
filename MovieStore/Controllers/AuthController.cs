@@ -30,7 +30,10 @@ namespace MovieStore.Controllers
             if (result.IsValid)
                 response = await customerService.LoginCustomerAsync(loginDTO);
             else
+            {
                 response.ValidationErrors = result.Errors.GetValidationErrors();
+                response.IsSuccess = false;
+            }
             return Ok(response);
         }
         [HttpPost("Register")]

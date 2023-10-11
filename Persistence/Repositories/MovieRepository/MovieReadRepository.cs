@@ -21,7 +21,7 @@ namespace Persistence.Repositories.MovieRepository
 
         public IQueryable<Movie> GetAllMovie()
         {
-            return db.Movies.Where(a => a.Status != Domain.Enums.Status.Pasive).Include(a => a.Genres).Include(a => a.Comments).Include(a => a.Actors);
+            return db.Movies.Where(a => a.Status != Domain.Enums.Status.Pasive).Include(a => a.Comments).Include(a => a.Actors);
         }
     }
 }
