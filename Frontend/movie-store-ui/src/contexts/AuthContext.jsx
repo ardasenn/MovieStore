@@ -1,18 +1,16 @@
 import { createContext, useContext, useState } from "react";
+import { useLocalStorageState } from "../Hooks/LocalStorage";
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useLocalStorageState("moviestore-auth", []);
 
   const login = (data) => {
-    setLoggedIn(true);
-    setUser(data.id);
-    localStorage.setItem("access-token-moviestore", data.accessToken);
+    setLoggedIn(data);
   };
 
-  const values = { loggedIn, user, login, setLoggedIn };
+  const values = { loggedIn, login, setLoggedIn };
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };
 

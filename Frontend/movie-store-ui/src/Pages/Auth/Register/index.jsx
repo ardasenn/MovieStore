@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { customerSchema } from "./validation";
-import { fetchRegister } from "../../../ApiCall";
+import { fetchRegister } from "../../../Api/ApiCall";
 import Modal from "react-modal";
 import { useNavigate } from "react-router-dom";
 
@@ -34,6 +34,7 @@ export const Register = () => {
       console.log(error);
     }
   };
+
   return (
     <>
       <form

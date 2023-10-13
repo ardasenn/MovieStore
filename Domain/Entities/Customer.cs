@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Customer : IdentityUser, IEntity
+    public class Customer : IdentityUser, IBaseEntity
     {
         public Customer()
         {
@@ -21,7 +21,6 @@ namespace Domain.Entities
         public DateTime? UpdateDate { get; set; }
         public DateTime? DeleteDate { get; set; }
         public Status Status { get; set; }
-        public List<Order> Orders { get; set; }
-        public Guid Id { get; set; }
+        public List<Order> Orders { get; set; }       
     }
 }

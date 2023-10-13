@@ -68,3 +68,10 @@
 - Navbar componenti tamamlandı.
 - React router 6 yı projede kullanıyor olacağım
 - Validasyonlar için ilk tercihim yup'tan yanaydı ama react-hook-form diye bir kütüphane buldum internette basit validasyonları bununla yapacağım daha kompleks yapılarda yup ile schema oluşturmaya yöneleceğim.
+
+## Gün 14
+
+- Authenticatin işlemlerini hallettim. Burada yaşadığım zorluklardan biri şu oldu Authenticate olmuş kullanıcının state'ini kontrol etmek. Sayfa yenilendiğinde state'im gidiyordu. Çözüm için bu alanda çalışan bir arkadaşımdan fikir aldım. Localstorage state ile bu durumun üstesinden geldim
+- Şuan da ön tarafta kodlarım çok backend variymiş :) Bunun önüne geçmek için kendime componentler hazırlamaya karar verdim. Button gibi container gibi
+- API tarafında ara ara değişiklikler yapıyorum ihtiyaç oldukça
+- Formu tasarlamak için react-hook-form kullanıyorum

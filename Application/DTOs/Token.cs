@@ -11,6 +11,6 @@ namespace Application.DTOs
         public string AccessToken { get; set; }
         public DateTime Expiration { get; set; }
         public string RefreshToken { get; set; }
-        public Guid Id { get; set; }
+        public string Id { get; set; }
     }
 }

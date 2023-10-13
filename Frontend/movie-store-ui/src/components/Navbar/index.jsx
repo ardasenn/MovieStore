@@ -14,6 +14,7 @@ export const Navbar = () => {
         <Link to="/" className=" hover:text-zinc-500">
           Ana Sayfa
         </Link>
+
         {loggedIn && (
           <>
             <Link to="/orders" className=" hover:text-zinc-500">
@@ -21,7 +22,7 @@ export const Navbar = () => {
             </Link>
             <Link>
               <button
-                onClick={() => setLoggedIn(false)}
+                onClick={() => setLoggedIn(null)}
                 className=" hover:text-black bg-yellow-500 w-24 h-10 rounded-full"
               >
                 Çıkış yap
