@@ -7,7 +7,7 @@ import { SignIn } from "./Pages/Auth/SignIn";
 
 function App() {
   return (
-    <div className=" bg-gradient-to-r from-myBlue to-myPurple">
+    <div className=" bg-gradient-to-r from-myBlue to-myPurple h-screen">
       <Navbar />
       <Routes>
         <Route path="/"> </Route>

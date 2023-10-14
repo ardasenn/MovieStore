@@ -12,7 +12,7 @@ export const Button = ({
   return (
     <>
       <button
-        className={`${size === "normal" ? normalSize : largeSize} ${
+        className={`text-white ${size === "normal" ? normalSize : largeSize} ${
           isBordered && "border-[1px] border-primary text-primary "
         } ${!isBordered && backgroundColor}  font-bold text-xl`}
         onClick={onClick}

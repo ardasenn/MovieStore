@@ -17,7 +17,7 @@ export const Input = ({
         {labelText}
       </label>
       <input
-        {...register(labelFor)}
+        {...register(labelFor, { required: true })}
         placeholder={placeholder}
         type={type}
         className="h-10 w-full pl-4 font-sans placeholder:font-medium placeholder:text-white text-white rounded-md bg-primary"

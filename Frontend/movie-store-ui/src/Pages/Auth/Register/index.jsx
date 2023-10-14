@@ -41,7 +41,7 @@ export const Register = () => {
     <>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className=" flex flex-col items-center pt-5 h-screen gap-8"
+        className=" flex flex-col items-center pt-5  gap-8"
       >
         <h3 className="font-bold text-4xl mb-5 text-white">Sign Up</h3>
 
