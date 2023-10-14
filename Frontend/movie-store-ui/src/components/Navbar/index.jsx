@@ -1,46 +1,51 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
+import { Button } from "../Button";
 
 export const Navbar = () => {
   const { loggedIn, setLoggedIn } = useAuth();
 
   return (
-    <div className="navbar-container flex h-16 justify-between items-center bg-slate-800 text-zinc-100 font-bold px-4">
-      <div className="navbar-image ">
-        <img className="h-8 mr-3" src="/movie.svg" alt="logo" />
-      </div>
-      <div className="navbar-content w-1/5 flex justify-evenly items-center">
-        <Link to="/" className=" hover:text-zinc-500">
-          Ana Sayfa
+    <div
+      className="navbar-container w-full flex  justify-between
+     items-center  text-zinc-100 font-bold px-4"
+    >
+      <div className="mt-2 flex items-center">
+        <Link to="/">
+          <img
+            className="h-[80px] w-[125px] mr-3 text-primary"
+            src="/movie2.svg"
+            alt="logo"
+          />
         </Link>
-
+        <p className="text-2xl">
+          Movie<span className="text-primary">Store</span>
+        </p>
+      </div>
+      <div className="flex justify-between items-center">
         {loggedIn && (
           <>
-            <Link to="/orders" className=" hover:text-zinc-500">
+            <Link to="/orders" className=" hover:text-zinc-500 mr-2">
               Siparişlerim
             </Link>
             <Link>
-              <button
+              <Button
                 onClick={() => setLoggedIn(null)}
-                className=" hover:text-black bg-yellow-500 w-24 h-10 rounded-full"
+                backgroundColor="bg-secondary"
               >
                 Çıkış yap
-              </button>
+              </Button>
             </Link>
           </>
         )}
         {!loggedIn && (
           <>
             <Link to="register">
-              <button className=" hover:text-black bg-green-500 w-24 h-10 rounded-full">
-                Kayıt ol
-              </button>
+              <Button backgroundColor="bg-myPurple">Sign Up</Button>
             </Link>
             <Link to="signin">
-              <button className=" hover:text-black bg-yellow-500 w-24 h-10 rounded-full">
-                Giriş Yap
-              </button>
+              <Button isBordered={true}>Sign In</Button>
             </Link>
           </>
         )}

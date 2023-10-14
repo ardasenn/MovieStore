@@ -5,6 +5,8 @@ import { customerSchema } from "./validation";
 import { fetchRegister } from "../../../Api/ApiCall";
 import Modal from "react-modal";
 import { useNavigate } from "react-router-dom";
+import { Input } from "../../../components/Input";
+import { Button } from "../../../components/Button";
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -39,104 +41,69 @@ export const Register = () => {
     <>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col items-center pt-5 space-y-2 bg-slate-50  "
+        className=" flex flex-col items-center pt-5 h-screen gap-8"
       >
-        <h3 className="font-bold text-4xl mb-5">Sign Up</h3>
-        <div className="mb-1">
-          <input
-            {...register("firstName")}
-            className="w-[400px] px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="First Name"
-          />
-          {errors.firstName && (
-            <span className="text-red-500 ml-2 block">
-              {errors.firstName.message}
-            </span>
-          )}
+        <h3 className="font-bold text-4xl mb-5 text-white">Sign Up</h3>
+
+        <Input
+          register={register}
+          labelFor="firstName"
+          type="text"
+          labelText="First Name *"
+          placeholder="First Name *"
+          errorMessage={errors.firstName?.message}
+        />
+        <Input
+          register={register}
+          labelFor="lastName"
+          type="text"
+          labelText="Last Name *"
+          placeholder="Last Name *"
+          errorMessage={errors.lastName?.message}
+        />
+        <Input
+          register={register}
+          labelFor="email"
+          type="email"
+          labelText="Email *"
+          placeholder="Email *"
+          errorMessage={errors.email?.message}
+        />
+        <Input
+          register={register}
+          labelFor="userName"
+          type="text"
+          labelText="User Name *"
+          placeholder="User Name *"
+          errorMessage={errors.userName?.message}
+        />
+        <Input
+          register={register}
+          labelFor="password"
+          type="password"
+          labelText="Password *"
+          placeholder="Password *"
+          errorMessage={errors.password?.message}
+        />
+        <Input
+          register={register}
+          labelFor="passwordConfirm"
+          type="password"
+          labelText="Confirm Password*"
+          placeholder="Password *"
+          errorMessage={errors.passwordConfirm?.message}
+        />
+        <Input
+          register={register}
+          labelFor="phoneNumber"
+          type="tel"
+          labelText="Phone Number *"
+          placeholder="Phone Number *"
+          errorMessage={errors.phoneNumber?.message}
+        />
+        <div className="flex w-[360px] justify-end w-full">
+          <Button backgroundColor="bg-secondary">Gönder</Button>
         </div>
-        <div className="mb-1">
-          <input
-            {...register("lastName")}
-            placeholder="Last Name"
-            className="w-[400px] px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          {errors.lastName && (
-            <span className="text-red-500 ml-2 block">
-              {errors.lastName.message}
-            </span>
-          )}
-        </div>
-        <div className="mb-1">
-          <input
-            {...register("email")}
-            placeholder="Email"
-            className="w-[400px] px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          {errors.email && (
-            <span className="text-red-500 ml-2 block">
-              {errors.email.message}
-            </span>
-          )}
-        </div>
-        <div className="mb-1">
-          <input
-            {...register("userName")}
-            type="text"
-            name="userName"
-            placeholder="Username"
-            className="w-[400px] px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          {errors.userName && (
-            <span className="text-red-500 ml-2 block">
-              {errors.userName.message}
-            </span>
-          )}
-        </div>
-        <div className="mb-1">
-          <input
-            {...register("password")}
-            type="password"
-            name="password"
-            placeholder="Password"
-            className="w-[400px] px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          {errors.password && (
-            <span className="text-red-500 ml-2 block">
-              {errors.password.message}
-            </span>
-          )}
-        </div>
-        <div className="mb-1">
-          <input
-            {...register("passwordConfirm")}
-            type="password"
-            name="passwordConfirm"
-            placeholder="Confirm Password"
-            className="w-[400px] px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          {errors.passwordConfirm && (
-            <span className="text-red-500 ml-2 block">
-              {errors.passwordConfirm.message}
-            </span>
-          )}
-        </div>
-        <div className="mb-1">
-          <input
-            {...register("phoneNumber")}
-            type="tel"
-            name="phoneNumber"
-            placeholder="Phone Number"
-            className="w-[400px] px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          {errors.phoneNumber && (
-            <span className="text-red-500 ml-2 block">
-              {errors.phoneNumber.message}
-            </span>
-          )}
-        </div>
-        <button className=" text-zinc-100 font-bold  hover:text-black bg-green-500 w-24 h-10 rounded-full">
-          Kayıt ol
-        </button>
       </form>
 
       <Modal

@@ -7,14 +7,14 @@ import { SignIn } from "./Pages/Auth/SignIn";
 
 function App() {
   return (
-    <>
+    <div className=" bg-gradient-to-r from-myBlue to-myPurple">
       <Navbar />
       <Routes>
         <Route path="/"> </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<SignIn />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
