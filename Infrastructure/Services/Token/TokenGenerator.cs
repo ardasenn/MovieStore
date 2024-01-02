@@ -33,7 +33,7 @@ namespace Infrastructure.Services.Token
             SigningCredentials signingCredentials = new(securityKey, SecurityAlgorithms.HmacSha256);
 
             //Oluşturulacak token ayarlarını veriyoruz.
-            token.Expiration = DateTime.Now.AddMinutes(second);
+            token.Expiration = DateTime.UtcNow.AddMinutes(second);
 
             JwtSecurityToken securityToken = new(
                 audience: configuration["Token:Issuer"],

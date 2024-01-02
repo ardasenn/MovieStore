@@ -25,12 +25,14 @@ namespace Persistence
                     EmailConfirmed = true,
                     NormalizedEmail = "ARDASEN.96@GMAIL.COM",
                     NormalizedUserName = "ADMIN",
-                    PasswordHash = "AQAAAAEAACcQAAAAECg6f0/tC/kbk70RGXAquYaFgyzsWl8hLjLuA5+eQIHwCAKW0oJtm38wYRjhTNsuvw=="
+                    PasswordHash = "AQAAAAEAACcQAAAAECg6f0/tC/kbk70RGXAquYaFgyzsWl8hLjLuA5+eQIHwCAKW0oJtm38wYRjhTNsuvw==",
+                    CreationDate = DateTime.UtcNow
                 });
             var genre = new Genre()
             {
                 Id = Guid.NewGuid(),
                 Name = "Komedi",
+                CreationDate = DateTime.UtcNow
             };
 
 
@@ -40,6 +42,7 @@ namespace Persistence
                 FirstName = "Cem",
                 LastName = "Yılmaz",
                 IsDirector = true,
+                CreationDate = DateTime.UtcNow
             };
             var movie = new Movie()
             {
@@ -49,6 +52,7 @@ namespace Persistence
                 Imdb = 7.3,
                 Id = Guid.NewGuid(),
                 SalesQuantity = 0,
+                CreationDate = DateTime.UtcNow
             };
             modelBuilder.Entity<Genre>().HasData(
                 genre);

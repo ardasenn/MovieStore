@@ -9,3 +9,11 @@
 - Translation sayfa görülen dilleri tek tuşla değitir veya route'dan (/en,/tr)
 
 - DarkMode, LightMode
+
+---
+
+- Klasör isimlendirmeleri ve jsx isimlerini toparla.
+
+- Axios singleton pattern usage
+
+- tailwind custom renk naming convension
