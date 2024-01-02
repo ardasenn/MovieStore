@@ -10,6 +10,6 @@ namespace Application.Services
     public interface ITokenGeneratorService
     {
         Application.DTOs.Token CreateAccesToken(int second,Customer customer);
-        string CreateRefreshToken();
+        string CreateRefreshToken(string email);
     }
 }

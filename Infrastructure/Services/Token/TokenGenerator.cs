@@ -41,7 +41,7 @@ namespace Infrastructure.Services.Token
                 expires: token.Expiration,
                 notBefore: DateTime.UtcNow,
                 signingCredentials: signingCredentials,
-                claims: new List<Claim> { new(ClaimTypes.Name, customer.UserName) }
+                claims: new List<Claim> { new(ClaimTypes.Email, customer.Email) }
                 );
             //Token oluşturucu sınıfından bir örnek alalım.
             JwtSecurityTokenHandler tokenHandler = new();
@@ -49,16 +49,26 @@ namespace Infrastructure.Services.Token
 
 
 
-            token.RefreshToken = CreateRefreshToken();
+            token.RefreshToken = CreateRefreshToken(customer.Email);
             return token;
         }
-        public string CreateRefreshToken()
+        public string CreateRefreshToken(string email)
         {
-            //TODO
-            byte[] number = new byte[32];
-            using RandomNumberGenerator random = RandomNumberGenerator.Create();
-            random.GetBytes(number);
-            return Convert.ToBase64String(number);
+            // Refresh token için bir anahtar (key) belirleyin
+            var key = Guid.NewGuid().ToString();
+
+            // JWT oluşturun
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Email, email) }),
+                Expires = DateTime.Now.AddMinutes(2), 
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Token:RefreshKey"])), SecurityAlgorithms.HmacSha256)
+            };
+
+            var refreshToken = tokenHandler.CreateToken(tokenDescriptor);
+
+            return tokenHandler.WriteToken(refreshToken);
 
         }
     }
