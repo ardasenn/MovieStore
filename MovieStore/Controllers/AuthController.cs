@@ -34,6 +34,11 @@ namespace MovieStore.Controllers
                 response.ValidationErrors = result.Errors.GetValidationErrors();
                 response.IsSuccess = false;
             }
+            Response.Cookies.Append("refresh-token", response.Data.RefreshToken, new CookieOptions()
+            {
+                HttpOnly = true,
+                SameSite = SameSiteMode.Strict
+            }); ;
             return Ok(response);
         }
         [HttpPost("Register")]

@@ -47,7 +47,7 @@ namespace Infrastructure.Services.Token
             JwtSecurityTokenHandler tokenHandler = new();
             token.AccessToken = tokenHandler.WriteToken(securityToken);
 
-
+           
 
             token.RefreshToken = CreateRefreshToken(customer.Email);
             return token;
