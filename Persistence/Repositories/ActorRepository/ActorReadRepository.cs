@@ -21,11 +21,11 @@ namespace Persistence.Repositories.ActorRepository
         {
             this.db = db;
         }
-
+       
         public GenericResponse<List<Actor>> GetIncludeAll()
         {
             GenericResponse<List<Actor>> response = new(true);
-            response.Data = db.Actors.Where(a => a.Status != Status.Pasive).ToList();
+            response.Data = db.Actors.Where(a => a.Status != Status.Pasive).Include(a => a.Movies).ToList();
             return response;
         }
     }

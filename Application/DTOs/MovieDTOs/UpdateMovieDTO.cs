@@ -24,7 +24,7 @@ namespace Application.DTOs.MovieDTOs
         public UpdateMovieDTOValidator()
         {
             RuleFor(a => a.Name).NotEmpty().NotNull().MaximumLength(200);
-            RuleFor(a => a.ReleaseDate).NotNull().NotEmpty().LessThanOrEqualTo(DateTime.Now);
+            RuleFor(a => a.ReleaseDate).NotNull().NotEmpty().LessThanOrEqualTo(DateTime.UtcNow);
             RuleFor(a => a.DirectorId).NotNull().NotEmpty();
             RuleFor(a => a.Price).NotNull().NotEmpty().GreaterThan(0);
             RuleFor(a => a.Imdb).NotNull().NotEmpty().GreaterThan(0);

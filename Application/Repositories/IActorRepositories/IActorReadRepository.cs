@@ -11,6 +11,10 @@ namespace Application.Repositories.IActorRepositories
 {
     public interface IActorReadRepository : IReadRepository<Actor>
     {
+        /// <summary>
+        /// Include Movies
+        /// </summary>
+        /// <returns></returns>
         GenericResponse<List<Actor>> GetIncludeAll();
     }
 }

@@ -29,13 +29,14 @@ using Microsoft.Extensions.Configuration;
 using Persistence.ConcreteServices.ActorService;
 using Persistence.ConcreteServices.MovieService;
 
+
 namespace Persistence
 {
     public static class ServiceRegistration
     {
         public static void AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<MovieDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("MovieDb")));
+            services.AddDbContext<MovieDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("MovieDb")));
             services.AddIdentity<Customer, IdentityRole>(options =>
             {
                 options.Password.RequiredLength = 3;

@@ -47,3 +47,31 @@
 - Bu uygulamada kullanılacak endpointler için Postman'da bir koleksiyon oluşturdum proje sonlandığında READ.me dosyasına eklemesini yapacağım.
 - Tek bir değer aldığım endpointlerde mesela Id gibi bu yapıları query'den çekme kararı aldım.
 - Proje initialize edildiğinde gözükmesi için dummy data ekledim.
+
+## Gün 11
+
+- Genreler için controller oluşturuldu, CRUD operasyonları sağlıklı çalışıyor
+- Yapımda Customer'lar Order verebiliyor ve bu orderlar Movieler içerebiliyor. Bu işlemleri nere yapmalıyım kararı beni açıkcası düşündürdü.Bu işlem için OrderController açıp orada mı gerçekleştirmeliyim yoksa CustomerController'da bunu halletsem olur mu şeklinde düşüncelerden sonra kararım Customer bu işlemi yaptığı için bu Controller altında toplamaktan yana oldu. Benzer mantıkla bu işleri servis olarakta CustomerService'e yükledim.
+- Sipariş oluşturma endpointi oluşturuldu
+
+## Gün 12
+
+- Unit test altyapısı ve ayarlamaları yapıldı.
+- Actor eklemek için unit test yazmayı denedim ama teorik olarak bu konuda çok eksiğimin olduğunu düşünüyorum. Mesela benim kullanmış olduğum patterne göre test ayarlarını yaptığım CommonFixtureTest clasının nasıl olmasını gerektiği tam kavrayamadım.
+- Bu konu üzerine daha fazla makale okuyup tekrar dönmeyi planlıyorum
+- Bir çok endpoint hazır olduğu için artık bugünden sonra React projesine geçiş yapacağım eksiklik olması dahilinde tabiki backende dönüş yaparım.
+
+## Gün 13
+
+- Projede frontend'e geçiş sağladım. İlgili yapı create-react-app ile oluşturuldu
+- İşleyiş olarak css tarafında Tailwind kullanma kararı aldım.
+- Navbar componenti tamamlandı.
+- React router 6 yı projede kullanıyor olacağım
+- Validasyonlar için ilk tercihim yup'tan yanaydı ama react-hook-form diye bir kütüphane buldum internette basit validasyonları bununla yapacağım daha kompleks yapılarda yup ile schema oluşturmaya yöneleceğim.
+
+## Gün 14
+
+- Authenticatin işlemlerini hallettim. Burada yaşadığım zorluklardan biri şu oldu Authenticate olmuş kullanıcının state'ini kontrol etmek. Sayfa yenilendiğinde state'im gidiyordu. Çözüm için bu alanda çalışan bir arkadaşımdan fikir aldım. Localstorage state ile bu durumun üstesinden geldim
+- Şuan da ön tarafta kodlarım çok backend variymiş :) Bunun önüne geçmek için kendime componentler hazırlamaya karar verdim. Button gibi container gibi
+- API tarafında ara ara değişiklikler yapıyorum ihtiyaç oldukça
+- Formu tasarlamak için react-hook-form kullanıyorum

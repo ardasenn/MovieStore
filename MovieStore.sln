@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\Persistence.csproj", "{C0A343F9-EC5C-4774-A5F4-456D9A911BB5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2D0F67D8-F753-46E1-8BB1-523A21EA69DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.UnitTests", "Tests\MovieStore.UnitTests\MovieStore.UnitTests.csproj", "{3C5FD709-39F2-4308-AB0F-13777F94F735}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,10 @@ Global
 		{C0A343F9-EC5C-4774-A5F4-456D9A911BB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0A343F9-EC5C-4774-A5F4-456D9A911BB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0A343F9-EC5C-4774-A5F4-456D9A911BB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C5FD709-39F2-4308-AB0F-13777F94F735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C5FD709-39F2-4308-AB0F-13777F94F735}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C5FD709-39F2-4308-AB0F-13777F94F735}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C5FD709-39F2-4308-AB0F-13777F94F735}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +63,7 @@ Global
 		{C0DD4250-D14A-469C-91CA-68BD8721485E} = {59EABDC1-7347-4962-BB26-E2CEF080D600}
 		{FD04F7D6-06DF-47BB-B567-BB8734FA949C} = {5572296F-0162-423B-B3B5-E17FE7C21166}
 		{C0A343F9-EC5C-4774-A5F4-456D9A911BB5} = {5572296F-0162-423B-B3B5-E17FE7C21166}
+		{3C5FD709-39F2-4308-AB0F-13777F94F735} = {2D0F67D8-F753-46E1-8BB1-523A21EA69DE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {17EC51E3-8817-4F12-80A9-D35FE9337890}

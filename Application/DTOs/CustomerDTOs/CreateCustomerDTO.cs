@@ -16,7 +16,7 @@ namespace Application.DTOs.CustomerDTOs
         public string UserName { get; set; }
         public string Password { get; set; }
         public string PasswordConfirm { get; set; }
-        public string PhoneNumber { get; set; }
+        public int PhoneNumber { get; set; }
     }
     public class CreateCustomerDTOValidator : AbstractValidator<CreateCustomerDTO>
     {
@@ -24,6 +24,8 @@ namespace Application.DTOs.CustomerDTOs
         {
             RuleFor(a => a.FirstName).NotEmpty().NotNull().MaximumLength(100);
             RuleFor(a => a.LastName).NotEmpty().NotNull().MaximumLength(100);
+            RuleFor(a => a.Password).Equal(b => b.PasswordConfirm).NotNull().NotEmpty();
+            RuleFor(a => a.PhoneNumber).NotEmpty();
             //todo validasyonlar
         }
     }

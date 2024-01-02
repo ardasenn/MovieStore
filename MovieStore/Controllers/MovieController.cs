@@ -9,17 +9,18 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Persistence.ConcreteServices.ActorService;
+using Persistence.ConcreteServices.MovieService;
 
 namespace MovieStore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class AdminController : ControllerBase
+    public class MovieController : ControllerBase
     {
         private readonly IMovieService movieService;
 
-        public AdminController(IMovieService movieService)
+        public MovieController(IMovieService movieService)
         {
             this.movieService = movieService;
         }
@@ -104,6 +105,8 @@ namespace MovieStore.Controllers
             }
             return Ok(response);
         }
-    }
+        [HttpGet("AllMovies")]
+        public async Task<IActionResult> GetAllMovie() => Ok(movieService.GetAll());
 
+    }
 }

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Application.Utilities.Response;
+using Application.VMs;
 
 namespace Persistence.ConcreteServices.GenreService
 {
@@ -25,7 +26,7 @@ namespace Persistence.ConcreteServices.GenreService
             this.writeRepository = writeRepository;
             this.mapper = mapper;
         }
-        public async Task<GenericResponse<bool>> CreateGenre(CreateGenreDTO model)
+        public async Task<GenericResponse<bool>> CreateGenreAsync(CreateGenreDTO model)
         {
             var genre = await readRepository.GetSingleAsync(a => a.Name.ToLower() == model.Name.ToLower());
             GenericResponse<bool> response = new();
@@ -50,7 +51,7 @@ namespace Persistence.ConcreteServices.GenreService
             return response;
         }
 
-        public async Task<GenericResponse<bool>> UpdateGenre(UpdateGenreDTO model)
+        public async Task<GenericResponse<bool>> UpdateGenreAsync(UpdateGenreDTO model)
         {
             var genre = await readRepository.GetByIdAsync(model.Id);
             GenericResponse<bool> response = new();
@@ -82,7 +83,7 @@ namespace Persistence.ConcreteServices.GenreService
             }
             return response;
         }
-        public async Task<GenericResponse<bool>> DeleteGenre(string id)
+        public async Task<GenericResponse<bool>> DeleteGenreAsync(string id)
         {
             var genre = await readRepository.GetByIdAsync(id);
             GenericResponse<bool> response = new();
@@ -102,7 +103,13 @@ namespace Persistence.ConcreteServices.GenreService
             return response;
         }
 
-        public List<Genre> GetAll() => readRepository.GetAll().ToList();
+        public GenericResponse<List<GenreVM>> GetAll()
+        {
+            GenericResponse<List<GenreVM>> response = new();
+            var genreList = readRepository.GetAll().ToList();
+            response.Data = mapper.Map<List<GenreVM>>(genreList);
+            return response;
+        }
 
 
 
