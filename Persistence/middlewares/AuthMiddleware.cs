@@ -2,7 +2,6 @@ using System.Net;
 using Microsoft.AspNetCore.Http;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -19,31 +18,76 @@ namespace Persistence.middlewares
             next = _next;
             this.configuration = configuration;
         }
+
         public async Task InvokeAsync(HttpContext context)
         {
-            if (!context.Request.Path.ToString().Contains("Auth"))
+            if (context.Request.Path.ToString().Contains("Auth"))
             {
                 await next(context);
                 return;
             }
-            var refreshToken = context.Request.Headers["refresh-token"];
-            if (string.IsNullOrEmpty(refreshToken))
-            {
-                await UnAuth(context);
-                return;
-            }
-            string accessTokenString = context.Request.Headers["Authorization"];
 
-            var token = accessTokenString.Split("Bearer ")[1];
-            if (string.IsNullOrEmpty(token))
+            var refreshToken = context.Request.Cookies["refresh-token"];
+            if (string.IsNullOrEmpty(refreshToken) || !ValidateRefreshToken(refreshToken))
             {
                 await UnAuth(context);
                 return;
             }
 
-            SymmetricSecurityKey securityKey = new(Encoding.UTF8.GetBytes(configuration["Token:SecurityKey"]));
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var tokenValidationParameters = new TokenValidationParameters
+            var accessToken = context.Request.Headers["Authorization"];
+            if (string.IsNullOrEmpty(accessToken) || !ValidateAccessToken(accessToken))
+            {
+                await UnAuth(context);
+                return;
+            }
+
+            string email = GetEmailFromClaims(accessToken);
+            context.Items["Email"] = email;
+            await next(context);
+        }
+
+        private bool ValidateRefreshToken(string refreshToken)
+        {
+            try
+            {
+                var securityRefreshKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Token:RefreshKey"]));
+                var tokenRefreshHandler = new JwtSecurityTokenHandler();
+                var tokenRefreshValidationParameters = GetTokenValidationParameters(securityRefreshKey);
+
+                tokenRefreshHandler.ValidateToken(refreshToken, tokenRefreshValidationParameters, out _);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        private bool ValidateAccessToken(string accessToken)
+        {
+            try
+            {
+                var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Token:SecurityKey"]));
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var tokenValidationParameters = GetTokenValidationParameters(securityKey);
+
+                tokenHandler.ValidateToken(accessToken.Split("Bearer ")[1], tokenValidationParameters, out _);
+                return true;
+            }
+            catch (SecurityTokenExpiredException)
+            {
+                // TODO generate token
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        private TokenValidationParameters GetTokenValidationParameters(SecurityKey securityKey)
+        {
+            return new TokenValidationParameters
             {
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = securityKey,
@@ -52,27 +96,19 @@ namespace Persistence.middlewares
                 ValidIssuer = configuration["Token:Issuer"],
                 ValidateAudience = true,
                 ValidateLifetime = true,
-                RequireExpirationTime = false,
+                RequireExpirationTime = true,
             };
-            ClaimsPrincipal claimsPrincipal = null;
-            try
-            {
-                claimsPrincipal = tokenHandler.ValidateToken(token, tokenValidationParameters, out SecurityToken validatedToken);
+        }
 
-            }
-            catch (SecurityTokenExpiredException)
-            {
-                //
-            }
-            catch (Exception ex)
-            {
-                await UnAuth(context);
-                return;
-            }
+        private string GetEmailFromClaims(string accessToken)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Token:SecurityKey"]));
+            var tokenValidationParameters = GetTokenValidationParameters(securityKey);
 
-            string email = claimsPrincipal.Claims.First(claim => claim.Type == ClaimTypes.Email).Value;
-            context.Items["Email"] = email;
-            await next(context);
+            var claimsPrincipal = tokenHandler.ValidateToken(accessToken.Split("Bearer ")[1], tokenValidationParameters, out _);
+
+            return claimsPrincipal?.Claims.First(claim => claim.Type == ClaimTypes.Email)?.Value;
         }
 
         private static async Task UnAuth(HttpContext context)

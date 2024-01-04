@@ -28,17 +28,23 @@ namespace MovieStore.Controllers
             var result = validator.Validate(loginDTO);
             GenericResponse<Application.DTOs.Token> response = new();
             if (result.IsValid)
+            {
                 response = await customerService.LoginCustomerAsync(loginDTO);
+            }
             else
             {
                 response.ValidationErrors = result.Errors.GetValidationErrors();
                 response.IsSuccess = false;
             }
-            Response.Cookies.Append("refresh-token", response.Data.RefreshToken, new CookieOptions()
+            if (response.Data != null)
             {
-                HttpOnly = true,
-                SameSite = SameSiteMode.Strict
-            }); ;
+                Response.Cookies.Append("refresh-token", response.Data.RefreshToken, new CookieOptions()
+                {
+                    HttpOnly = true,
+                    SameSite = SameSiteMode.Strict
+                });
+                response.Data.RefreshToken = string.Empty;
+            }
             return Ok(response);
         }
         [HttpPost("Register")]

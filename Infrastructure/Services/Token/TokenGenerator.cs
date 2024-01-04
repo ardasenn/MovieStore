@@ -30,32 +30,30 @@ namespace Infrastructure.Services.Token
 
             SigningCredentials signingCredentials = new(securityKey, SecurityAlgorithms.HmacSha256);
 
-            token.Expiration = DateTime.UtcNow.AddMinutes(second);
+            token.Expiration = DateTime.UtcNow.AddSeconds(second);
 
             JwtSecurityToken securityToken = new(
                 audience: configuration["Token:Issuer"],
                 issuer: configuration["Token:Issuer"],
-                expires: token.Expiration,
-                notBefore: DateTime.UtcNow,
+                expires: token.Expiration,                
                 signingCredentials: signingCredentials,
                 claims: new List<Claim> { new(ClaimTypes.Email, customer.Email) }
                 );
             JwtSecurityTokenHandler tokenHandler = new();
+
             token.AccessToken = tokenHandler.WriteToken(securityToken);
-
-
 
             token.RefreshToken = CreateRefreshToken(customer.Email);
             return token;
         }
         public string CreateRefreshToken(string email)
         {
-            var key = Guid.NewGuid().ToString();
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenDescriptor = new SecurityTokenDescriptor
-            {
+            {Audience= configuration["Token:Issuer"],
+            Issuer= configuration["Token:Issuer"],
                 Subject = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Email, email) }),
-                Expires = DateTime.Now.AddMinutes(2),
+                Expires = DateTime.UtcNow.AddDays(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Token:RefreshKey"])), SecurityAlgorithms.HmacSha256)
             };
 
