@@ -26,13 +26,10 @@ namespace Infrastructure.Services.Token
         {
             Application.DTOs.Token token = new();
 
-            //Security Key'in simetriğini alıyoruz.
             SymmetricSecurityKey securityKey = new(Encoding.UTF8.GetBytes(configuration["Token:SecurityKey"]));
 
-            //Şifrelenmiş kimliği oluşturuyoruz.
             SigningCredentials signingCredentials = new(securityKey, SecurityAlgorithms.HmacSha256);
 
-            //Oluşturulacak token ayarlarını veriyoruz.
             token.Expiration = DateTime.UtcNow.AddMinutes(second);
 
             JwtSecurityToken securityToken = new(
@@ -43,26 +40,22 @@ namespace Infrastructure.Services.Token
                 signingCredentials: signingCredentials,
                 claims: new List<Claim> { new(ClaimTypes.Email, customer.Email) }
                 );
-            //Token oluşturucu sınıfından bir örnek alalım.
             JwtSecurityTokenHandler tokenHandler = new();
             token.AccessToken = tokenHandler.WriteToken(securityToken);
 
-           
+
 
             token.RefreshToken = CreateRefreshToken(customer.Email);
             return token;
         }
         public string CreateRefreshToken(string email)
         {
-            // Refresh token için bir anahtar (key) belirleyin
             var key = Guid.NewGuid().ToString();
-
-            // JWT oluşturun
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Email, email) }),
-                Expires = DateTime.Now.AddMinutes(2), 
+                Expires = DateTime.Now.AddMinutes(2),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Token:RefreshKey"])), SecurityAlgorithms.HmacSha256)
             };
 

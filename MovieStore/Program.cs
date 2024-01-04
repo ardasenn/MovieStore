@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Security.Claims;
+using MovieStore.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -64,6 +65,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthMiddleware();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseCors("AllowAnyOrigin");
