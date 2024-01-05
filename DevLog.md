@@ -75,3 +75,11 @@
 - Şuan da ön tarafta kodlarım çok backend variymiş :) Bunun önüne geçmek için kendime componentler hazırlamaya karar verdim. Button gibi container gibi
 - API tarafında ara ara değişiklikler yapıyorum ihtiyaç oldukça
 - Formu tasarlamak için react-hook-form kullanıyorum
+
+## Gün 15
+
+- Repositoryler ayrıldı. Front ve Backendi ayırmak istedim
+- Bu projeye başlayalı bir yıl oluyor, şimdiki bilgim ile bir çok şeyi refactor etmem lazım ama bir karar aldım bu haliyle devam ettireceğim
+- Authentication işlemlerini değiştirdim refresh key httponly olacak şekilde servis ediliyor
+- Comment operasyonları için gerekli servisler entegre edildi
+- Bir iki haftada projenin tamamlanması için bazı yapılardan vazgeçtim
