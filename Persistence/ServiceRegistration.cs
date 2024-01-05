@@ -28,6 +28,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Persistence.ConcreteServices.ActorService;
 using Persistence.ConcreteServices.MovieService;
+using Persistence.ConcreteServices.CommentService;
 
 
 namespace Persistence
@@ -64,6 +65,7 @@ namespace Persistence
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<IMovieService, MovieService>();
+            services.AddScoped<ICommentService, CommentService>();
             //Mapper
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
         }

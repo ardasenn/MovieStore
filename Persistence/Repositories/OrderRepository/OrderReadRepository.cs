@@ -1,5 +1,8 @@
 ﻿using Application.Repositories.IOrderRepositories;
+using Application.Utilities.Response;
+using Application.VMs;
 using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using Persistence.Context;
 using System;
 using System.Collections.Generic;
@@ -13,6 +16,7 @@ namespace Persistence.Repositories.OrderRepository
     {
         public OrderReadRepository(MovieDbContext db) : base(db)
         {
+
         }
     }
 }

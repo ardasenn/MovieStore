@@ -19,8 +19,8 @@ namespace Persistence.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<CreateCustomerDTO, Customer>();
             CreateMap<CreateGenreDTO, Genre>();
+            CreateMap<CreateCustomerDTO, Customer>();
             CreateMap<UpdateGenreDTO, Genre>();
             CreateMap<CreateActorDTO, Actor>();
             CreateMap<UpdateActorDTO, Actor>();
@@ -31,7 +31,14 @@ namespace Persistence.Mapping
             CreateMap<Actor, ActorVM>();
             CreateMap<Genre, GenreVM>();
             CreateMap<Movie, UserMovie>();
-            CreateMap<Movie, MovieVM>();
+            CreateMap<Movie, MovieVM>()
+            .ForMember(dest => dest.Genres, opt => opt.MapFrom(src => src.Genres.Select(g => new GenreVM
+            {
+                Id = g.Id,
+                Name = g.Name
+            })))
+            .ForMember(dest => dest.Actors, opt => opt.MapFrom(src => src.Actors.Select(a => new ActorSummaryVM { Id = a.Id, FirstName = a.FirstName, LastName = a.LastName })))
+            .ForMember(dest => dest.Comments, opt => opt.MapFrom(src => src.Comments.Where(a=>a.Status!=Domain.Enums.Status.Pasive).Select(c => new CommentVM { Id = c.Id, Rate = c.Rate, Text = c.Text, CreationDate = c.CreationDate, UpdateDate = c.UpdateDate })));
         }
     }
 }

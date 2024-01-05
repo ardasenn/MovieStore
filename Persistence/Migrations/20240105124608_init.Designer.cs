@@ -12,7 +12,7 @@ using Persistence.Context;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(MovieDbContext))]
-    [Migration("20240102115415_init")]
+    [Migration("20240105124608_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,8 +41,8 @@ namespace Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            ActorsId = new Guid("12c30d38-11c6-4a2a-bac5-03ff96a9bc6a"),
-                            MoviesId = new Guid("2ef020f4-bef1-438e-b774-52b7519e4a9c")
+                            ActorsId = new Guid("678b5fe5-2563-4e7f-9621-64aa02aca8f1"),
+                            MoviesId = new Guid("846ddf19-b34b-4b10-b206-6048ee0e59d7")
                         });
                 });
 
@@ -84,8 +84,8 @@ namespace Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("12c30d38-11c6-4a2a-bac5-03ff96a9bc6a"),
-                            CreationDate = new DateTime(2024, 1, 2, 11, 54, 15, 474, DateTimeKind.Utc).AddTicks(6882),
+                            Id = new Guid("678b5fe5-2563-4e7f-9621-64aa02aca8f1"),
+                            CreationDate = new DateTime(2024, 1, 5, 12, 46, 8, 30, DateTimeKind.Utc).AddTicks(3829),
                             FirstName = "Cem",
                             IsDirector = true,
                             LastName = "Yılmaz",
@@ -222,10 +222,10 @@ namespace Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "710cae49-3ce4-4ba1-9c6c-5ae8f958afb7",
+                            Id = "b9d910f6-7d4f-4644-b92b-bf6b9e8510cd",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "47eb8e82-ee24-408b-84e3-b68b2cb101c9",
-                            CreationDate = new DateTime(2024, 1, 2, 11, 54, 15, 474, DateTimeKind.Utc).AddTicks(6801),
+                            ConcurrencyStamp = "42c6be2a-f8f8-4bd2-bd15-2b94742c6197",
+                            CreationDate = new DateTime(2024, 1, 5, 12, 46, 8, 30, DateTimeKind.Utc).AddTicks(3748),
                             Email = "ardasen.96@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "admin",
@@ -235,7 +235,7 @@ namespace Persistence.Migrations
                             NormalizedUserName = "ADMIN",
                             PasswordHash = "AQAAAAEAACcQAAAAECg6f0/tC/kbk70RGXAquYaFgyzsWl8hLjLuA5+eQIHwCAKW0oJtm38wYRjhTNsuvw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "500c780d-9a8f-4a03-98f7-4a646d6784e4",
+                            SecurityStamp = "cd0c24ac-4521-45ea-94bc-22fb768fdb9c",
                             Status = 0,
                             TwoFactorEnabled = false,
                             UserName = "admin"
@@ -272,8 +272,8 @@ namespace Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e9babf7a-c464-41b2-993f-75f8e9dc920b"),
-                            CreationDate = new DateTime(2024, 1, 2, 11, 54, 15, 474, DateTimeKind.Utc).AddTicks(6879),
+                            Id = new Guid("ac8b205f-6e7f-48c7-8ce2-e2a711f16def"),
+                            CreationDate = new DateTime(2024, 1, 5, 12, 46, 8, 30, DateTimeKind.Utc).AddTicks(3826),
                             Name = "Komedi",
                             Status = 0
                         });
@@ -325,9 +325,9 @@ namespace Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2ef020f4-bef1-438e-b774-52b7519e4a9c"),
-                            CreationDate = new DateTime(2024, 1, 2, 11, 54, 15, 474, DateTimeKind.Utc).AddTicks(6892),
-                            DirectorId = "12c30d38-11c6-4a2a-bac5-03ff96a9bc6a",
+                            Id = new Guid("846ddf19-b34b-4b10-b206-6048ee0e59d7"),
+                            CreationDate = new DateTime(2024, 1, 5, 12, 46, 8, 30, DateTimeKind.Utc).AddTicks(3852),
+                            DirectorId = "678b5fe5-2563-4e7f-9621-64aa02aca8f1",
                             Imdb = 7.2999999999999998,
                             Name = "Arog",
                             Price = 28.00m,
@@ -366,7 +366,7 @@ namespace Persistence.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("Order");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("GenreMovie", b =>
@@ -386,8 +386,8 @@ namespace Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            GenresId = new Guid("e9babf7a-c464-41b2-993f-75f8e9dc920b"),
-                            MoviesId = new Guid("2ef020f4-bef1-438e-b774-52b7519e4a9c")
+                            GenresId = new Guid("ac8b205f-6e7f-48c7-8ce2-e2a711f16def"),
+                            MoviesId = new Guid("846ddf19-b34b-4b10-b206-6048ee0e59d7")
                         });
                 });
 

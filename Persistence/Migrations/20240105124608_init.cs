@@ -217,7 +217,7 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Order",
+                name: "Orders",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -230,9 +230,9 @@ namespace Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Order", x => x.Id);
+                    table.PrimaryKey("PK_Orders", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Order_AspNetUsers_CustomerId",
+                        name: "FK_Orders_AspNetUsers_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -334,9 +334,9 @@ namespace Persistence.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_MovieOrder_Order_OrdersId",
+                        name: "FK_MovieOrder_Orders_OrdersId",
                         column: x => x.OrdersId,
-                        principalTable: "Order",
+                        principalTable: "Orders",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -344,32 +344,32 @@ namespace Persistence.Migrations
             migrationBuilder.InsertData(
                 table: "Actors",
                 columns: new[] { "Id", "CreationDate", "DeleteDate", "FirstName", "IsDirector", "LastName", "Status", "UpdateDate" },
-                values: new object[] { new Guid("12c30d38-11c6-4a2a-bac5-03ff96a9bc6a"), new DateTime(2024, 1, 2, 11, 54, 15, 474, DateTimeKind.Utc).AddTicks(6882), null, "Cem", true, "Yılmaz", 0, null });
+                values: new object[] { new Guid("678b5fe5-2563-4e7f-9621-64aa02aca8f1"), new DateTime(2024, 1, 5, 12, 46, 8, 30, DateTimeKind.Utc).AddTicks(3829), null, "Cem", true, "Yılmaz", 0, null });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreationDate", "DeleteDate", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Status", "TwoFactorEnabled", "UpdateDate", "UserName" },
-                values: new object[] { "710cae49-3ce4-4ba1-9c6c-5ae8f958afb7", 0, "47eb8e82-ee24-408b-84e3-b68b2cb101c9", new DateTime(2024, 1, 2, 11, 54, 15, 474, DateTimeKind.Utc).AddTicks(6801), null, "ardasen.96@gmail.com", true, "admin", "admin", false, null, "ARDASEN.96@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAECg6f0/tC/kbk70RGXAquYaFgyzsWl8hLjLuA5+eQIHwCAKW0oJtm38wYRjhTNsuvw==", null, false, "500c780d-9a8f-4a03-98f7-4a646d6784e4", 0, false, null, "admin" });
+                values: new object[] { "b9d910f6-7d4f-4644-b92b-bf6b9e8510cd", 0, "42c6be2a-f8f8-4bd2-bd15-2b94742c6197", new DateTime(2024, 1, 5, 12, 46, 8, 30, DateTimeKind.Utc).AddTicks(3748), null, "ardasen.96@gmail.com", true, "admin", "admin", false, null, "ARDASEN.96@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAECg6f0/tC/kbk70RGXAquYaFgyzsWl8hLjLuA5+eQIHwCAKW0oJtm38wYRjhTNsuvw==", null, false, "cd0c24ac-4521-45ea-94bc-22fb768fdb9c", 0, false, null, "admin" });
 
             migrationBuilder.InsertData(
                 table: "Genres",
                 columns: new[] { "Id", "CreationDate", "DeleteDate", "Name", "Status", "UpdateDate" },
-                values: new object[] { new Guid("e9babf7a-c464-41b2-993f-75f8e9dc920b"), new DateTime(2024, 1, 2, 11, 54, 15, 474, DateTimeKind.Utc).AddTicks(6879), null, "Komedi", 0, null });
+                values: new object[] { new Guid("ac8b205f-6e7f-48c7-8ce2-e2a711f16def"), new DateTime(2024, 1, 5, 12, 46, 8, 30, DateTimeKind.Utc).AddTicks(3826), null, "Komedi", 0, null });
 
             migrationBuilder.InsertData(
                 table: "Movies",
                 columns: new[] { "Id", "CreationDate", "DeleteDate", "DirectorId", "Imdb", "Name", "Price", "ReleaseDate", "SalesQuantity", "Status", "UpdateDate" },
-                values: new object[] { new Guid("2ef020f4-bef1-438e-b774-52b7519e4a9c"), new DateTime(2024, 1, 2, 11, 54, 15, 474, DateTimeKind.Utc).AddTicks(6892), null, "12c30d38-11c6-4a2a-bac5-03ff96a9bc6a", 7.2999999999999998, "Arog", 28.00m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 0, null });
+                values: new object[] { new Guid("846ddf19-b34b-4b10-b206-6048ee0e59d7"), new DateTime(2024, 1, 5, 12, 46, 8, 30, DateTimeKind.Utc).AddTicks(3852), null, "678b5fe5-2563-4e7f-9621-64aa02aca8f1", 7.2999999999999998, "Arog", 28.00m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 0, null });
 
             migrationBuilder.InsertData(
                 table: "ActorMovie",
                 columns: new[] { "ActorsId", "MoviesId" },
-                values: new object[] { new Guid("12c30d38-11c6-4a2a-bac5-03ff96a9bc6a"), new Guid("2ef020f4-bef1-438e-b774-52b7519e4a9c") });
+                values: new object[] { new Guid("678b5fe5-2563-4e7f-9621-64aa02aca8f1"), new Guid("846ddf19-b34b-4b10-b206-6048ee0e59d7") });
 
             migrationBuilder.InsertData(
                 table: "GenreMovie",
                 columns: new[] { "GenresId", "MoviesId" },
-                values: new object[] { new Guid("e9babf7a-c464-41b2-993f-75f8e9dc920b"), new Guid("2ef020f4-bef1-438e-b774-52b7519e4a9c") });
+                values: new object[] { new Guid("ac8b205f-6e7f-48c7-8ce2-e2a711f16def"), new Guid("846ddf19-b34b-4b10-b206-6048ee0e59d7") });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ActorMovie_MoviesId",
@@ -434,8 +434,8 @@ namespace Persistence.Migrations
                 column: "OrdersId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Order_CustomerId",
-                table: "Order",
+                name: "IX_Orders_CustomerId",
+                table: "Orders",
                 column: "CustomerId");
         }
 
@@ -481,7 +481,7 @@ namespace Persistence.Migrations
                 name: "Movies");
 
             migrationBuilder.DropTable(
-                name: "Order");
+                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

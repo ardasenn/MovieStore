@@ -6,14 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace Application.Services
 {
     public interface ICommentService
     {
-        Task<GenericResponse<bool>> CreateComment(CreateCommentDTO model);
-        Task<GenericResponse<bool>> UpdateComment(UpdateCommentDTO model);
-        Task<GenericResponse<bool>> DeleteComment(string id);
-        List<Comment> GetAll();
+        Task<GenericResponse<bool>> CreateCommentAsync(CreateCommentDTO model);
+        Task<GenericResponse<bool>> UpdateCommentAsync(UpdateCommentDTO model);
+        Task<GenericResponse<bool>> DeleteCommentAsync(string id);
     }
 }

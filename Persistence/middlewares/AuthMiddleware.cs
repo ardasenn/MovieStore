@@ -41,7 +41,7 @@ namespace Persistence.middlewares
                 return;
             }
 
-            string email = GetEmailFromClaims(accessToken);
+            string email = GetEmailFromClaims(refreshToken);
             context.Items["Email"] = email;
             await next(context);
         }
@@ -100,13 +100,13 @@ namespace Persistence.middlewares
             };
         }
 
-        private string GetEmailFromClaims(string accessToken)
+        private string GetEmailFromClaims(string refreshToken)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Token:SecurityKey"]));
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Token:RefreshKey"]));
             var tokenValidationParameters = GetTokenValidationParameters(securityKey);
 
-            var claimsPrincipal = tokenHandler.ValidateToken(accessToken.Split("Bearer ")[1], tokenValidationParameters, out _);
+            var claimsPrincipal = tokenHandler.ValidateToken(refreshToken, tokenValidationParameters, out _);
 
             return claimsPrincipal?.Claims.First(claim => claim.Type == ClaimTypes.Email)?.Value;
         }
