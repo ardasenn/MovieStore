@@ -17,10 +17,10 @@ namespace Domain.Entities
         }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime CreationDate { get; set; }
+        public DateTime CreationDate { get; set; } = DateTime.UtcNow;
         public DateTime? UpdateDate { get; set; }
         public DateTime? DeleteDate { get; set; }
         public Status Status { get; set; }
-        public List<Order> Orders { get; set; }       
+        public List<Order> Orders { get; set; }
     }
 }

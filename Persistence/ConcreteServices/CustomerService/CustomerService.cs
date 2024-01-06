@@ -128,17 +128,19 @@ namespace Persistence.ConcreteServices.CustomerService
             Customer customer = await userManager.FindByEmailAsync(model.Email);
             if (customer == null)
             {
+                response.IsSuccess = false;
                 response.Message = Messages.NotExist;
                 return response;
             }
             bool isLogin = await userManager.CheckPasswordAsync(customer, model.Password);
             if (!isLogin)
             {
+                response.IsSuccess = false;
                 response.Message = Messages.LoginFail;
                 return response;
             }
             await userManager.RemoveAuthenticationTokenAsync(customer, "Movie", "AccessToken");
-            Token token = tokenGenerator.CreateAccesToken(60*60, customer);
+            Token token = tokenGenerator.CreateAccesToken(60 * 60, customer);
             token.Id = customer.Id;
             await userManager.SetAuthenticationTokenAsync(customer, "Movie", "AccessToken", token.AccessToken);
             response.IsSuccess = true;

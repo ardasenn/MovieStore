@@ -30,9 +30,10 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAnyOrigin",
         builder =>
         {
-            builder.AllowAnyOrigin();
+            builder.WithOrigins("http://localhost:3000");
             builder.AllowAnyHeader();
             builder.AllowAnyMethod();
+            builder.AllowCredentials();
         });
 });
 
@@ -44,10 +45,10 @@ using (var scope = app.Services.CreateScope())
 
 
 app.UseHttpsRedirection();
+app.UseCors("AllowAnyOrigin");
 app.UseAuthMiddleware();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseCors("AllowAnyOrigin");
 app.MapControllers();
 
 app.Run();
