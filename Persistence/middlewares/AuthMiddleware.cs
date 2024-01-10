@@ -27,7 +27,7 @@ namespace Persistence.middlewares
                 return;
             }
 
-            var refreshToken = context.Request.Cookies["refresh-token"];
+            var refreshToken = context.Request.Headers["refreshToken"];
             if (string.IsNullOrEmpty(refreshToken) || !ValidateRefreshToken(refreshToken))
             {
                 await UnAuth(context);
