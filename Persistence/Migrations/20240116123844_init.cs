@@ -221,7 +221,6 @@ namespace Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    OrderStatus = table.Column<int>(type: "integer", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
@@ -344,32 +343,58 @@ namespace Persistence.Migrations
             migrationBuilder.InsertData(
                 table: "Actors",
                 columns: new[] { "Id", "CreationDate", "DeleteDate", "FirstName", "IsDirector", "LastName", "Status", "UpdateDate" },
-                values: new object[] { new Guid("678b5fe5-2563-4e7f-9621-64aa02aca8f1"), new DateTime(2024, 1, 5, 12, 46, 8, 30, DateTimeKind.Utc).AddTicks(3829), null, "Cem", true, "Yılmaz", 0, null });
+                values: new object[,]
+                {
+                    { new Guid("057cea6d-7762-4d3f-ae63-039492fee274"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5247), null, "Rasim", false, "Öztekin", 0, null },
+                    { new Guid("1ecd834d-8215-432f-bd6f-fe4224fafacd"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5252), null, "Cengiz", false, "Bozkurt", 0, null },
+                    { new Guid("243cbeba-9a15-464b-8da9-d3e479ba50b2"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5256), null, "Melisa", false, "Aslı Pamuk", 0, null },
+                    { new Guid("3611a6d8-1516-4318-bbc7-63aac373eb5a"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5262), null, "Rasim", false, "Öztekin", 0, null },
+                    { new Guid("431fd310-c959-4513-b9f8-c0aa3faae286"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5259), null, "Ahmet", false, "Kural", 0, null },
+                    { new Guid("9027c4c8-114c-4872-816f-e49111b7121f"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5245), null, "Demet", false, "Evgar", 0, null },
+                    { new Guid("9799acb4-bad5-4802-9eac-f066b1b66a63"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5250), null, "Ozan", false, "Güven", 0, null },
+                    { new Guid("a42b21c1-bf20-4730-bf32-616637f29f01"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5241), null, "Cem", true, "Yılmaz", 0, null },
+                    { new Guid("ba4bfa40-d5e7-4edf-b35b-1f9e3451b5b6"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5254), null, "İlker", false, "Kaleli", 0, null },
+                    { new Guid("ed5c0621-adf7-4318-aedf-7d088a913071"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5248), null, "Zafer", false, "Algöz", 0, null }
+                });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreationDate", "DeleteDate", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Status", "TwoFactorEnabled", "UpdateDate", "UserName" },
-                values: new object[] { "b9d910f6-7d4f-4644-b92b-bf6b9e8510cd", 0, "42c6be2a-f8f8-4bd2-bd15-2b94742c6197", new DateTime(2024, 1, 5, 12, 46, 8, 30, DateTimeKind.Utc).AddTicks(3748), null, "ardasen.96@gmail.com", true, "admin", "admin", false, null, "ARDASEN.96@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAECg6f0/tC/kbk70RGXAquYaFgyzsWl8hLjLuA5+eQIHwCAKW0oJtm38wYRjhTNsuvw==", null, false, "cd0c24ac-4521-45ea-94bc-22fb768fdb9c", 0, false, null, "admin" });
+                values: new object[] { "3f4fd215-e301-4b31-9246-19b0834b60ac", 0, "14076ecf-09f6-4d48-a3c1-9c36a7b3c2f0", new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5067), null, "ardasen.96@gmail.com", true, "admin", "admin", false, null, "ARDASEN.96@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAECg6f0/tC/kbk70RGXAquYaFgyzsWl8hLjLuA5+eQIHwCAKW0oJtm38wYRjhTNsuvw==", null, false, "3e65919f-cf91-4a90-bd58-cfe39c01f523", 0, false, null, "admin" });
 
             migrationBuilder.InsertData(
                 table: "Genres",
                 columns: new[] { "Id", "CreationDate", "DeleteDate", "Name", "Status", "UpdateDate" },
-                values: new object[] { new Guid("ac8b205f-6e7f-48c7-8ce2-e2a711f16def"), new DateTime(2024, 1, 5, 12, 46, 8, 30, DateTimeKind.Utc).AddTicks(3826), null, "Komedi", 0, null });
+                values: new object[,]
+                {
+                    { new Guid("41030c52-ad3b-4422-999b-d0b737a9e85e"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5229), null, "Komedi", 0, null },
+                    { new Guid("4b70cb7e-d77e-4871-9403-986cf5f8b17f"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5204), null, "Aksiyon", 0, null },
+                    { new Guid("69e76573-cfab-4405-9649-20b70b8c1c29"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5225), null, "Korku", 0, null },
+                    { new Guid("82a20df2-54ef-45ec-9840-0d4deed48856"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5208), null, "Drama", 0, null },
+                    { new Guid("8b37b35d-50f6-49c6-9514-dc0851de5426"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5231), null, "Gerilim", 0, null },
+                    { new Guid("a190809c-12f0-48b7-a8c4-bd7abb909ddd"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5223), null, "Romantik", 0, null },
+                    { new Guid("add742e5-3b65-47fb-9b69-bb7e427ece2f"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5235), null, "Macera", 0, null },
+                    { new Guid("bb5eccb8-0857-4dc5-96bd-a33e3fffea8f"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5222), null, "Bilim Kurgu", 0, null },
+                    { new Guid("e0a1794b-2def-44bd-ae59-c445bb66e589"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5232), null, "Belgesel", 0, null },
+                    { new Guid("ff7b1724-4032-4021-b081-789da90c149c"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5228), null, "Fantastik", 0, null }
+                });
 
             migrationBuilder.InsertData(
                 table: "Movies",
                 columns: new[] { "Id", "CreationDate", "DeleteDate", "DirectorId", "Imdb", "Name", "Price", "ReleaseDate", "SalesQuantity", "Status", "UpdateDate" },
-                values: new object[] { new Guid("846ddf19-b34b-4b10-b206-6048ee0e59d7"), new DateTime(2024, 1, 5, 12, 46, 8, 30, DateTimeKind.Utc).AddTicks(3852), null, "678b5fe5-2563-4e7f-9621-64aa02aca8f1", 7.2999999999999998, "Arog", 28.00m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 0, null });
-
-            migrationBuilder.InsertData(
-                table: "ActorMovie",
-                columns: new[] { "ActorsId", "MoviesId" },
-                values: new object[] { new Guid("678b5fe5-2563-4e7f-9621-64aa02aca8f1"), new Guid("846ddf19-b34b-4b10-b206-6048ee0e59d7") });
-
-            migrationBuilder.InsertData(
-                table: "GenreMovie",
-                columns: new[] { "GenresId", "MoviesId" },
-                values: new object[] { new Guid("ac8b205f-6e7f-48c7-8ce2-e2a711f16def"), new Guid("846ddf19-b34b-4b10-b206-6048ee0e59d7") });
+                values: new object[,]
+                {
+                    { new Guid("0d4855ff-135a-426c-bb90-a6481c95f346"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5359), null, "a42b21c1-bf20-4730-bf32-616637f29f01", 6.7000000000000002, "Cehennem Melekleri 2", 29.00m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 22, 0, null },
+                    { new Guid("56395ca2-b570-49c3-9ec0-645371db6e4f"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5329), null, "a42b21c1-bf20-4730-bf32-616637f29f01", 8.0999999999999996, "CM101MMXI Fundamentals", 32.50m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 20, 0, null },
+                    { new Guid("5fc52fd4-092d-4b67-9a33-a0dd7542d967"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5317), null, "a42b21c1-bf20-4730-bf32-616637f29f01", 7.7999999999999998, "G.O.R.A", 25.00m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 15, 0, null },
+                    { new Guid("6d29b93d-e589-436c-b736-52bfd90d60a5"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5349), null, "a42b21c1-bf20-4730-bf32-616637f29f01", 7.5, "Gora + Arog", 40.00m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 25, 0, null },
+                    { new Guid("7c5854b6-7e8a-4127-b06a-8ec34b8a7854"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5334), null, "a42b21c1-bf20-4730-bf32-616637f29f01", 6.2999999999999998, "Pek Yakında", 27.50m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 12, 0, null },
+                    { new Guid("7f5cc6b3-93dd-41c9-be42-f4eacead8c29"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5341), null, "a42b21c1-bf20-4730-bf32-616637f29f01", 6.7000000000000002, "Arif v 216", 35.00m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 18, 0, null },
+                    { new Guid("917faaaf-8f53-4f68-97d7-7f43706c3d23"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5286), null, "a42b21c1-bf20-4730-bf32-616637f29f01", 7.2999999999999998, "Arog", 28.00m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 10, 0, null },
+                    { new Guid("b0c0706a-5496-4944-a410-b043a6250cd4"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5366), null, "a42b21c1-bf20-4730-bf32-616637f29f01", 6.5, "Fasulye", 26.50m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 16, 0, null },
+                    { new Guid("bbdefef2-150b-4bfe-9f20-5f9485b0993a"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5354), null, "a42b21c1-bf20-4730-bf32-616637f29f01", 6.2000000000000002, "Ali Baba ve 7 Cüceler", 33.50m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 14, 0, null },
+                    { new Guid("c1611eeb-4353-4e70-8252-79e0418b0ddf"), new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5323), null, "a42b21c1-bf20-4730-bf32-616637f29f01", 6.9000000000000004, "Yahşi Batı", 30.00m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 8, 0, null }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ActorMovie_MoviesId",

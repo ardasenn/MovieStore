@@ -107,6 +107,7 @@ namespace MovieStore.Controllers
         }
         [HttpGet("AllMovies")]
         public async Task<IActionResult> GetAllMovie() => Ok(movieService.GetAll());
-
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetMovie([FromRoute] string id) => Ok(movieService.GetMovie(id));   
     }
 }

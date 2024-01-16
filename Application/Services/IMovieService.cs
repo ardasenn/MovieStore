@@ -18,5 +18,6 @@ namespace Application.Services
         GenericResponse<List<MovieVM>> GetAll();
         Task<GenericResponse<bool>> AddActorToMovie(AddActorToMovieDTO model);
         Task<GenericResponse<bool>> AddGenreToMovie(AddGenreToMovieDTO model);
+        GenericResponse<MovieVM> GetMovie(string id);
     }
 }

@@ -28,59 +28,267 @@ namespace Persistence
                     PasswordHash = "AQAAAAEAACcQAAAAECg6f0/tC/kbk70RGXAquYaFgyzsWl8hLjLuA5+eQIHwCAKW0oJtm38wYRjhTNsuvw==",
                     CreationDate = DateTime.UtcNow
                 });
-            var genre = new Genre()
-            {
-                Id = Guid.NewGuid(),
-                Name = "Komedi",
-                CreationDate = DateTime.UtcNow
-            };
+            List<Genre> genreList = new List<Genre>
+{
+    new Genre
+    {
+        Id = Guid.NewGuid(),
+        Name = "Aksiyon",
+        CreationDate = DateTime.UtcNow
+    },
+    new Genre
+    {
+        Id = Guid.NewGuid(),
+        Name = "Drama",
+        CreationDate = DateTime.UtcNow
+    },
+    new Genre
+    {
+        Id = Guid.NewGuid(),
+        Name = "Bilim Kurgu",
+        CreationDate = DateTime.UtcNow
+    },
+    new Genre
+    {
+        Id = Guid.NewGuid(),
+        Name = "Romantik",
+        CreationDate = DateTime.UtcNow
+    },
+    new Genre
+    {
+        Id = Guid.NewGuid(),
+        Name = "Korku",
+        CreationDate = DateTime.UtcNow
+    },
+    new Genre
+    {
+        Id = Guid.NewGuid(),
+        Name = "Fantastik",
+        CreationDate = DateTime.UtcNow
+    },
+    new Genre
+    {
+        Id = Guid.NewGuid(),
+        Name = "Komedi",
+        CreationDate = DateTime.UtcNow
+    },
+    new Genre
+    {
+        Id = Guid.NewGuid(),
+        Name = "Gerilim",
+        CreationDate = DateTime.UtcNow
+    },
+    new Genre
+    {
+        Id = Guid.NewGuid(),
+        Name = "Belgesel",
+        CreationDate = DateTime.UtcNow
+    },
+    new Genre
+    {
+        Id = Guid.NewGuid(),
+        Name = "Macera",
+        CreationDate = DateTime.UtcNow
+    }
+};
 
+            var actors = new List<Actor>
+{
+    new Actor
+    {
+        Id = Guid.NewGuid(),
+        FirstName = "Cem",
+        LastName = "Yılmaz",
+        IsDirector = true,
+        CreationDate = DateTime.UtcNow
+    },
+    new Actor
+    {
+        Id = Guid.NewGuid(),
+        FirstName = "Demet",
+        LastName = "Evgar",
+        IsDirector = false,
+        CreationDate = DateTime.UtcNow
+    },
+    new Actor
+    {
+        Id = Guid.NewGuid(),
+        FirstName = "Rasim",
+        LastName = "Öztekin",
+        IsDirector = false,
+        CreationDate = DateTime.UtcNow
+    },
+    new Actor
+    {
+        Id = Guid.NewGuid(),
+        FirstName = "Zafer",
+        LastName = "Algöz",
+        IsDirector = false,
+        CreationDate = DateTime.UtcNow
+    },
+    new Actor
+    {
+        Id = Guid.NewGuid(),
+        FirstName = "Ozan",
+        LastName = "Güven",
+        IsDirector = false,
+        CreationDate = DateTime.UtcNow
+    },
+    new Actor
+    {
+        Id = Guid.NewGuid(),
+        FirstName = "Cengiz",
+        LastName = "Bozkurt",
+        IsDirector = false,
+        CreationDate = DateTime.UtcNow
+    },
+    new Actor
+    {
+        Id = Guid.NewGuid(),
+        FirstName = "İlker",
+        LastName = "Kaleli",
+        IsDirector = false,
+        CreationDate = DateTime.UtcNow
+    },
+    new Actor
+    {
+        Id = Guid.NewGuid(),
+        FirstName = "Melisa",
+        LastName = "Aslı Pamuk",
+        IsDirector = false,
+        CreationDate = DateTime.UtcNow
+    },
+    new Actor
+    {
+        Id = Guid.NewGuid(),
+        FirstName = "Ahmet",
+        LastName = "Kural",
+        IsDirector = false,
+        CreationDate = DateTime.UtcNow
+    },
+    new Actor
+    {
+        Id = Guid.NewGuid(),
+        FirstName = "Rasim",
+        LastName = "Öztekin",
+        IsDirector = false,
+        CreationDate = DateTime.UtcNow
+    }
+};
 
-            var actor = new Actor()
-            {
-                Id = Guid.NewGuid(),
-                FirstName = "Cem",
-                LastName = "Yılmaz",
-                IsDirector = true,
-                CreationDate = DateTime.UtcNow
-            };
-            var movie = new Movie()
-            {
-                Name = "Arog",
-                DirectorId = actor.Id.ToString(),
-                Price = 28.00M,
-                Imdb = 7.3,
-                Id = Guid.NewGuid(),
-                SalesQuantity = 0,
-                CreationDate = DateTime.UtcNow
-            };
+            List<Movie> cemYilmazMovies = new List<Movie>
+{
+    new Movie
+    {
+        Id = Guid.NewGuid(),
+        Name = "Arog",
+        DirectorId = actors.FirstOrDefault(a => a.FirstName == "Cem")?.Id.ToString(),
+        Price = 28.00M,
+        Imdb = 7.3,
+        SalesQuantity = 10,
+        CreationDate = DateTime.UtcNow
+    },
+    new Movie
+    {
+        Id = Guid.NewGuid(),
+        Name = "G.O.R.A",
+        DirectorId = actors.FirstOrDefault(a => a.FirstName == "Cem")?.Id.ToString(),
+        Price = 25.00M,
+        Imdb = 7.8,
+        SalesQuantity = 15,
+        CreationDate = DateTime.UtcNow
+    },
+    new Movie
+    {
+        Id = Guid.NewGuid(),
+        Name = "Yahşi Batı",
+        DirectorId = actors.FirstOrDefault(a => a.FirstName == "Cem")?.Id.ToString(),
+        Price = 30.00M,
+        Imdb = 6.9,
+        SalesQuantity = 8,
+        CreationDate = DateTime.UtcNow
+    },
+    new Movie
+    {
+        Id = Guid.NewGuid(),
+        Name = "CM101MMXI Fundamentals",
+        DirectorId = actors.FirstOrDefault(a => a.FirstName == "Cem")?.Id.ToString(),
+        Price = 32.50M,
+        Imdb = 8.1,
+        SalesQuantity = 20,
+        CreationDate = DateTime.UtcNow
+    },
+    new Movie
+    {
+        Id = Guid.NewGuid(),
+        Name = "Pek Yakında",
+        DirectorId = actors.FirstOrDefault(a => a.FirstName == "Cem")?.Id.ToString(),
+        Price = 27.50M,
+        Imdb = 6.3,
+        SalesQuantity = 12,
+        CreationDate = DateTime.UtcNow
+    },
+    new Movie
+    {
+        Id = Guid.NewGuid(),
+        Name = "Arif v 216",
+        DirectorId = actors.FirstOrDefault(a => a.FirstName == "Cem")?.Id.ToString(),
+        Price = 35.00M,
+        Imdb = 6.7,
+        SalesQuantity = 18,
+        CreationDate = DateTime.UtcNow
+    },
+    new Movie
+    {
+        Id = Guid.NewGuid(),
+        Name = "Gora + Arog",
+        DirectorId = actors.FirstOrDefault(a => a.FirstName == "Cem")?.Id.ToString(),
+        Price = 40.00M,
+        Imdb = 7.5,
+        SalesQuantity = 25,
+        CreationDate = DateTime.UtcNow
+    },
+    new Movie
+    {
+        Id = Guid.NewGuid(),
+        Name = "Ali Baba ve 7 Cüceler",
+        DirectorId = actors.FirstOrDefault(a => a.FirstName == "Cem")?.Id.ToString(),
+        Price = 33.50M,
+        Imdb = 6.2,
+        SalesQuantity = 14,
+        CreationDate = DateTime.UtcNow
+    },
+    new Movie
+    {
+        Id = Guid.NewGuid(),
+        Name = "Cehennem Melekleri 2",
+        DirectorId = actors.FirstOrDefault(a => a.FirstName == "Cem")?.Id.ToString(),
+        Price = 29.00M,
+        Imdb = 6.7,
+        SalesQuantity = 22,
+        CreationDate = DateTime.UtcNow
+    },
+    new Movie
+    {
+        Id = Guid.NewGuid(),
+        Name = "Fasulye",
+        DirectorId = actors.FirstOrDefault(a => a.FirstName == "Cem")?.Id.ToString(),
+        Price = 26.50M,
+        Imdb = 6.5,
+        SalesQuantity = 16,
+        CreationDate = DateTime.UtcNow
+    }
+};
+
+            // cemYilmazMovies'i kullanabilirsin
+
             modelBuilder.Entity<Genre>().HasData(
-                genre);
+                genreList);
             modelBuilder.Entity<Actor>().HasData(
-               actor);
+               actors);
             modelBuilder.Entity<Movie>().HasData(
-               movie);
+               cemYilmazMovies);
 
-            //Aktore ve movie
-            modelBuilder
-           .Entity<Actor>()
-           .HasMany(p => p.Movies)
-           .WithMany(p => p.Actors)
-           .UsingEntity(j => j.HasData(new
-           {
-               ActorsId = actor.Id,
-               MoviesId = movie.Id
-           }));
-            //Movie ve Genre
-            modelBuilder
-           .Entity<Movie>()
-           .HasMany(p => p.Genres)
-           .WithMany(p => p.Movies)
-           .UsingEntity(j => j.HasData(new
-           {
-               MoviesId = movie.Id,
-               GenresId = genre.Id
-           }));
         }
         public static void AddFakeData(MovieDbContext context)
         {

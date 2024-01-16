@@ -9,5 +9,6 @@ namespace Application.Repositories.IOrderRepositories
 {
     public interface IOrderReadRepository : IReadRepository<Order>
     {
+        List<Order> GetWhereIncludeMovie(string id);
     }
 }

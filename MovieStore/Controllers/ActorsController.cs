@@ -76,5 +76,7 @@ namespace MovieStore.Controllers
             }
             return Ok(response);
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetActor([FromRoute] string id) => Ok(actorService.GetActor(id));
     }
 }

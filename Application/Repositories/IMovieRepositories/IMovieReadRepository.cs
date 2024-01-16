@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Application.Utilities.Response;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace Application.Repositories.IMovieRepositories
     public interface IMovieReadRepository : IReadRepository<Movie>
     {
         IQueryable<Movie> GetAllMovie();
+        GenericResponse<Movie> GetInclude(string id);
     }
 }

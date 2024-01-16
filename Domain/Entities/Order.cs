@@ -16,7 +16,6 @@ namespace Domain.Entities
             MovieList = new List<Movie>();
         }
         public Guid Id { get; set; }
-        public OrderStatus OrderStatus { get; set; } = OrderStatus.OnBasket;
         public DateTime CreationDate { get; set; }
         public DateTime? UpdateDate { get; set; }
         public DateTime? DeleteDate { get; set; }

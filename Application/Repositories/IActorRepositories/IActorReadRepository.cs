@@ -16,5 +16,6 @@ namespace Application.Repositories.IActorRepositories
         /// </summary>
         /// <returns></returns>
         GenericResponse<List<Actor>> GetIncludeAll();
+        GenericResponse<Actor> GetInclude(string id);
     }
 }

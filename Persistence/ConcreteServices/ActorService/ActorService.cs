@@ -111,5 +111,17 @@ namespace Persistence.ConcreteServices.ActorService
             }
             return response;
         }
+        public GenericResponse<ActorVM> GetActor(string id)
+        {
+            GenericResponse<ActorVM> response = new(true);
+            Actor actor = readRepository.GetInclude(id).Data;
+            if(actor == null)
+            {
+                response.IsSuccess = false;
+                response.Message = Messages.NotExist;
+            }
+            response.Data = mapper.Map<ActorVM>(actor);
+            return response;
+        }
     }
 }

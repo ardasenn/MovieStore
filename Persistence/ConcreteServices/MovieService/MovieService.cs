@@ -240,5 +240,17 @@ namespace Persistence.ConcreteServices.MovieService
             }
             return response;
         }
+        public GenericResponse<MovieVM> GetMovie(string id)
+        {
+            GenericResponse<MovieVM> response = new(true);
+            Movie movie = readRepository.GetInclude(id).Data;
+            if (movie == null)
+            {
+                response.IsSuccess = false;
+                response.Message = Messages.NotExist;
+            }
+            response.Data = mapper.Map<MovieVM>(movie);
+            return response;
+        }
     }
 }

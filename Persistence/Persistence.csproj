@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ConcreteServices\" />
     <Folder Include="Context\" />
     <Folder Include="EntityConfig\" />
     <Folder Include="Mapping\" />

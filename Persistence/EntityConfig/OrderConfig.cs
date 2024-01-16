@@ -12,8 +12,7 @@ namespace Persistence.EntityConfig
     {
         public override void Configure(EntityTypeBuilder<Order> builder)
         {
-            builder.Property(a => a.Id).IsRequired();
-            builder.Property(a => a.OrderStatus).IsRequired();            
+            builder.Property(a => a.Id).IsRequired();         
             base.Configure(builder);
         }
     }

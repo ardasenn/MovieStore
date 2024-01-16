@@ -28,5 +28,11 @@ namespace Persistence.Repositories.ActorRepository
             response.Data = db.Actors.Where(a => a.Status != Status.Pasive).Include(a => a.Movies).ToList();
             return response;
         }
+        public GenericResponse<Actor> GetInclude(string id)
+        {
+            GenericResponse<Actor> response = new(true);
+            response.Data = db.Actors.Where(a => a.Status != Status.Pasive && a.Id.ToString() == id).Include(a => a.Movies).FirstOrDefault(); ;
+            return response;
+        }
     }
 }

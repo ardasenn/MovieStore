@@ -16,6 +16,7 @@ using Application.Repositories.IMovieRepositories;
 using Application.Repositories.IOrderRepositories;
 using Application.VMs;
 using Application.Repositories.IActorRepositories;
+using System.Collections.Generic;
 
 namespace Persistence.ConcreteServices.CustomerService
 {
@@ -151,7 +152,21 @@ namespace Persistence.ConcreteServices.CustomerService
 
 
         }
+        public async Task<GenericResponse<List<OrderVM>>> GetUserOrder(string id)
+        {
+            GenericResponse<List<OrderVM>> response = new();
+            var customer = await userManager.FindByIdAsync(id);
+            if (customer is null)
+            {
+                response.Message = Messages.NotExist;
+                response.IsSuccess = false;
+            }
+            List<Order> orderList = orderReadRepository.GetWhereIncludeMovie(id);
+            List<OrderVM> resData = mapper.Map<List<OrderVM>>(orderList);
+            response.Data = resData;
 
+            return response;
+        }
 
 
     }
