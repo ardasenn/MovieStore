@@ -23,7 +23,7 @@ namespace Persistence.Repositories.OrderRepository
         }
         public List<Order> GetWhereIncludeMovie(string id)
         {
-            return db.Orders.Include(a=>a.Customer).Include(a => a.MovieList).Where(a => a.Status != Domain.Enums.Status.Pasive && a.Customer.Id.ToString() ==id).ToList();
+            return db.Orders.Include(a => a.Customer).Include(a => a.MovieList).Where(a => a.Status != Domain.Enums.Status.Pasive && a.Customer.Id ==id).ToList();
         }
     }
 }
