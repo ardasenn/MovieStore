@@ -102,7 +102,6 @@ namespace Persistence.ConcreteServices.GenreService
             }
             return response;
         }
-
         public GenericResponse<List<GenreVM>> GetAll()
         {
             GenericResponse<List<GenreVM>> response = new();
@@ -110,8 +109,5 @@ namespace Persistence.ConcreteServices.GenreService
             response.Data = mapper.Map<List<GenreVM>>(genreList);
             return response;
         }
-
-
-
     }
 }

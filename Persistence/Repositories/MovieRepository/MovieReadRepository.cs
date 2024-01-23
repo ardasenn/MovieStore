@@ -23,12 +23,16 @@ namespace Persistence.Repositories.MovieRepository
 
         public IQueryable<Movie> GetAllMovie()
         {
-            return db.Movies.Include(a => a.Genres).Include(a => a.Comments).Where(a => a.Status != Domain.Enums.Status.Pasive).Include(a => a.Actors);
+            return db.Movies.Include(a => a.Genres).Include(a => a.Comments).Where(a => a.Status != Domain.Enums.Status.Pasive).Include(a => a.Actors).OrderByDescending(a => a.CreationDate);
+        }
+        public IQueryable<Movie> GetlMoviesByGenre(string id)
+        {
+            return db.Movies.Include(a => a.Genres).Where(a => a.Status != Domain.Enums.Status.Pasive && a.Genres.Any(g=>g.Id.ToString()==id)).Include(a => a.Actors).OrderByDescending(a => a.CreationDate);
         }
         public GenericResponse<Movie> GetInclude(string id)
         {
             GenericResponse<Movie> response = new(true);
-            response.Data = db.Movies.Where(a => a.Status != Status.Pasive && a.Id.ToString() == id).Include(a => a.Genres).Include(a=>a.Actors).FirstOrDefault(); ;
+            response.Data = db.Movies.Where(a => a.Status != Status.Pasive && a.Id.ToString() == id).Include(a => a.Genres).Include(a=>a.Actors).Include(a=>a.Comments).FirstOrDefault(); ;
             return response;
         }
     }

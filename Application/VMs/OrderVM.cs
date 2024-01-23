@@ -11,5 +11,6 @@ namespace Application.VMs
     {
         public Guid Id { get; set; }
         public List<UserMovie> MovieList { get; set; }
+        public DateTime CreationDate { get; set; }
     }
 }

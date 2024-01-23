@@ -8,14 +8,15 @@ namespace Application.Utilities.Constants
 {
     public class Messages
     {
-        public const string AddSucceeded = "Ekleme işlemi başarılı";
-        public const string UpdateSucceeded = "Güncelleme işlemi başarılı";
-        public const string DeleteSucceeded = "Silme işlemi başarılı";
-        public const string Exist = "Böyle bir kayıt zaten var";
-        public const string NotExist = "Böyle bir kayıt yok";
-        public const string SaveFail = "Kayıt işlemi yaparkan bir hata oluştu";
-        public const string Fail = "İşlemi yaparkan bir hata oluştu";
-        public const string LoginFail = "Email veya şifer hatalı";
-        public const string IdFail = "Id hatalı veya eksik";
+        public const string AddSucceeded = "Add operation successful";
+        public const string UpdateSucceeded = "Update operation successful";
+        public const string DeleteSucceeded = "Delete operation successful";
+        public const string Exist = "Record already exists";
+        public const string NotExist = "Record does not exist";
+        public const string SaveFail = "An error occurred while saving the record";
+        public const string Fail = "An error occurred during the operation";
+        public const string LoginFail = "Incorrect email or password";
+        public const string IdFail = "Incorrect or missing ID";
+        public const string BalanceFail = "Not enough money in your account";
     }
 }

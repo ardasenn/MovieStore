@@ -57,5 +57,7 @@ namespace MovieStore.Controllers
         }
         [HttpGet("MyOrders/{id}")]
         public async Task<IActionResult> MyOrders([FromRoute]string id) => Ok(await customerService.GetUserOrder(id));
+        [HttpGet("Details/{id}")]
+        public async Task<IActionResult> UserDetails([FromRoute] string id) => Ok(await customerService.GetUserDetails(id));
     }
 }

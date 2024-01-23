@@ -11,6 +11,7 @@ namespace Application.Repositories.IMovieRepositories
     public interface IMovieReadRepository : IReadRepository<Movie>
     {
         IQueryable<Movie> GetAllMovie();
+        IQueryable<Movie> GetlMoviesByGenre(string id);
         GenericResponse<Movie> GetInclude(string id);
     }
 }

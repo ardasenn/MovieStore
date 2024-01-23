@@ -12,7 +12,7 @@ using Persistence.Context;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(MovieDbContext))]
-    [Migration("20240116123844_init")]
+    [Migration("20240123122654_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -77,8 +77,8 @@ namespace Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("a42b21c1-bf20-4730-bf32-616637f29f01"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5241),
+                            Id = new Guid("fdea1ee6-3748-4a12-8177-937e67806ad7"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7204),
                             FirstName = "Cem",
                             IsDirector = true,
                             LastName = "Yılmaz",
@@ -86,8 +86,8 @@ namespace Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("9027c4c8-114c-4872-816f-e49111b7121f"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5245),
+                            Id = new Guid("0ee3ec71-533e-4c8f-8139-6a5fa889962e"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7207),
                             FirstName = "Demet",
                             IsDirector = false,
                             LastName = "Evgar",
@@ -95,8 +95,8 @@ namespace Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("057cea6d-7762-4d3f-ae63-039492fee274"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5247),
+                            Id = new Guid("6eb014d4-fd5b-4cf8-826a-c698ce5bd521"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7209),
                             FirstName = "Rasim",
                             IsDirector = false,
                             LastName = "Öztekin",
@@ -104,8 +104,8 @@ namespace Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ed5c0621-adf7-4318-aedf-7d088a913071"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5248),
+                            Id = new Guid("334ac3d6-eff0-4bc0-b6f8-ef31dd4648fc"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7210),
                             FirstName = "Zafer",
                             IsDirector = false,
                             LastName = "Algöz",
@@ -113,8 +113,8 @@ namespace Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("9799acb4-bad5-4802-9eac-f066b1b66a63"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5250),
+                            Id = new Guid("b83e3bd9-acce-4e2a-ad9f-82fc0c698d95"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7212),
                             FirstName = "Ozan",
                             IsDirector = false,
                             LastName = "Güven",
@@ -122,8 +122,8 @@ namespace Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("1ecd834d-8215-432f-bd6f-fe4224fafacd"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5252),
+                            Id = new Guid("c7cf15f4-fade-46db-b389-aa82bd583f9e"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7214),
                             FirstName = "Cengiz",
                             IsDirector = false,
                             LastName = "Bozkurt",
@@ -131,8 +131,8 @@ namespace Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ba4bfa40-d5e7-4edf-b35b-1f9e3451b5b6"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5254),
+                            Id = new Guid("0b413fcb-665d-481a-8840-605dc79cd9dc"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7216),
                             FirstName = "İlker",
                             IsDirector = false,
                             LastName = "Kaleli",
@@ -140,8 +140,8 @@ namespace Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("243cbeba-9a15-464b-8da9-d3e479ba50b2"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5256),
+                            Id = new Guid("d2a9d6aa-625e-4538-81b3-50301574157e"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7217),
                             FirstName = "Melisa",
                             IsDirector = false,
                             LastName = "Aslı Pamuk",
@@ -149,8 +149,8 @@ namespace Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("431fd310-c959-4513-b9f8-c0aa3faae286"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5259),
+                            Id = new Guid("29f70065-80ab-4f9a-a208-fc2c3d0df1b3"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7221),
                             FirstName = "Ahmet",
                             IsDirector = false,
                             LastName = "Kural",
@@ -158,8 +158,8 @@ namespace Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3611a6d8-1516-4318-bbc7-63aac373eb5a"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5262),
+                            Id = new Guid("8eb63b9e-46c3-464e-a1cb-f02418e65a24"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7223),
                             FirstName = "Rasim",
                             IsDirector = false,
                             LastName = "Öztekin",
@@ -215,6 +215,9 @@ namespace Persistence.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("integer");
+
+                    b.Property<decimal>("Balance")
+                        .HasColumnType("numeric");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -296,10 +299,11 @@ namespace Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "3f4fd215-e301-4b31-9246-19b0834b60ac",
+                            Id = "e2ab6248-a8e0-4ebb-9e63-01fd1ee81943",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "14076ecf-09f6-4d48-a3c1-9c36a7b3c2f0",
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5067),
+                            Balance = 100m,
+                            ConcurrencyStamp = "7c98c017-1cb1-46eb-b5e2-bc7a0d2be5a4",
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7088),
                             Email = "ardasen.96@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "admin",
@@ -309,7 +313,7 @@ namespace Persistence.Migrations
                             NormalizedUserName = "ADMIN",
                             PasswordHash = "AQAAAAEAACcQAAAAECg6f0/tC/kbk70RGXAquYaFgyzsWl8hLjLuA5+eQIHwCAKW0oJtm38wYRjhTNsuvw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3e65919f-cf91-4a90-bd58-cfe39c01f523",
+                            SecurityStamp = "c73079a1-f81b-43b1-be39-94e540469a51",
                             Status = 0,
                             TwoFactorEnabled = false,
                             UserName = "admin"
@@ -346,71 +350,71 @@ namespace Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("4b70cb7e-d77e-4871-9403-986cf5f8b17f"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5204),
+                            Id = new Guid("38b77ec7-38ad-4ce6-95eb-6f01b0f45a39"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7165),
                             Name = "Aksiyon",
                             Status = 0
                         },
                         new
                         {
-                            Id = new Guid("82a20df2-54ef-45ec-9840-0d4deed48856"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5208),
+                            Id = new Guid("32da1d4d-b4ba-4ff2-a2e4-4df38f3c7e76"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7170),
                             Name = "Drama",
                             Status = 0
                         },
                         new
                         {
-                            Id = new Guid("bb5eccb8-0857-4dc5-96bd-a33e3fffea8f"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5222),
+                            Id = new Guid("a567e33b-b204-4aa0-a1c2-77ed5664d98b"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7184),
                             Name = "Bilim Kurgu",
                             Status = 0
                         },
                         new
                         {
-                            Id = new Guid("a190809c-12f0-48b7-a8c4-bd7abb909ddd"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5223),
+                            Id = new Guid("c08aed8f-d363-4fba-af8e-6988a8ce500c"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7186),
                             Name = "Romantik",
                             Status = 0
                         },
                         new
                         {
-                            Id = new Guid("69e76573-cfab-4405-9649-20b70b8c1c29"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5225),
+                            Id = new Guid("1bd5a2e7-71fa-4654-a2e4-205413e880dd"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7187),
                             Name = "Korku",
                             Status = 0
                         },
                         new
                         {
-                            Id = new Guid("ff7b1724-4032-4021-b081-789da90c149c"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5228),
+                            Id = new Guid("3e2cc64a-c837-4250-8d05-5ca420a2b9de"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7190),
                             Name = "Fantastik",
                             Status = 0
                         },
                         new
                         {
-                            Id = new Guid("41030c52-ad3b-4422-999b-d0b737a9e85e"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5229),
+                            Id = new Guid("25a2cbbd-c390-4b9e-9a1c-d41da19686b1"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7192),
                             Name = "Komedi",
                             Status = 0
                         },
                         new
                         {
-                            Id = new Guid("8b37b35d-50f6-49c6-9514-dc0851de5426"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5231),
+                            Id = new Guid("85fdc836-300a-4827-a6f6-256449c09040"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7193),
                             Name = "Gerilim",
                             Status = 0
                         },
                         new
                         {
-                            Id = new Guid("e0a1794b-2def-44bd-ae59-c445bb66e589"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5232),
+                            Id = new Guid("ceef3b04-7c4a-40ae-af38-dd9b1857256b"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7195),
                             Name = "Belgesel",
                             Status = 0
                         },
                         new
                         {
-                            Id = new Guid("add742e5-3b65-47fb-9b69-bb7e427ece2f"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5235),
+                            Id = new Guid("533b0e2e-42e4-4b60-9c23-95a0b757c556"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7197),
                             Name = "Macera",
                             Status = 0
                         });
@@ -462,9 +466,9 @@ namespace Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("917faaaf-8f53-4f68-97d7-7f43706c3d23"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5286),
-                            DirectorId = "a42b21c1-bf20-4730-bf32-616637f29f01",
+                            Id = new Guid("4de6f805-5b20-4477-9679-59e9f08ba498"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7263),
+                            DirectorId = "fdea1ee6-3748-4a12-8177-937e67806ad7",
                             Imdb = 7.2999999999999998,
                             Name = "Arog",
                             Price = 28.00m,
@@ -474,9 +478,9 @@ namespace Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5fc52fd4-092d-4b67-9a33-a0dd7542d967"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5317),
-                            DirectorId = "a42b21c1-bf20-4730-bf32-616637f29f01",
+                            Id = new Guid("b3873176-fd03-496c-abfd-bf33caab5270"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7270),
+                            DirectorId = "fdea1ee6-3748-4a12-8177-937e67806ad7",
                             Imdb = 7.7999999999999998,
                             Name = "G.O.R.A",
                             Price = 25.00m,
@@ -486,9 +490,9 @@ namespace Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c1611eeb-4353-4e70-8252-79e0418b0ddf"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5323),
-                            DirectorId = "a42b21c1-bf20-4730-bf32-616637f29f01",
+                            Id = new Guid("5bc965ee-12a4-4222-84f5-2ff43da3a558"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7275),
+                            DirectorId = "fdea1ee6-3748-4a12-8177-937e67806ad7",
                             Imdb = 6.9000000000000004,
                             Name = "Yahşi Batı",
                             Price = 30.00m,
@@ -498,9 +502,9 @@ namespace Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("56395ca2-b570-49c3-9ec0-645371db6e4f"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5329),
-                            DirectorId = "a42b21c1-bf20-4730-bf32-616637f29f01",
+                            Id = new Guid("75e60cac-1a2b-4318-bf58-ba59b8978c92"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7280),
+                            DirectorId = "fdea1ee6-3748-4a12-8177-937e67806ad7",
                             Imdb = 8.0999999999999996,
                             Name = "CM101MMXI Fundamentals",
                             Price = 32.50m,
@@ -510,9 +514,9 @@ namespace Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("7c5854b6-7e8a-4127-b06a-8ec34b8a7854"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5334),
-                            DirectorId = "a42b21c1-bf20-4730-bf32-616637f29f01",
+                            Id = new Guid("8716c451-3694-4c6e-89ee-2cb720f13a47"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7285),
+                            DirectorId = "fdea1ee6-3748-4a12-8177-937e67806ad7",
                             Imdb = 6.2999999999999998,
                             Name = "Pek Yakında",
                             Price = 27.50m,
@@ -522,9 +526,9 @@ namespace Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("7f5cc6b3-93dd-41c9-be42-f4eacead8c29"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5341),
-                            DirectorId = "a42b21c1-bf20-4730-bf32-616637f29f01",
+                            Id = new Guid("d04d3074-b167-47ad-bad8-24bad2cacd53"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7292),
+                            DirectorId = "fdea1ee6-3748-4a12-8177-937e67806ad7",
                             Imdb = 6.7000000000000002,
                             Name = "Arif v 216",
                             Price = 35.00m,
@@ -534,9 +538,9 @@ namespace Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("6d29b93d-e589-436c-b736-52bfd90d60a5"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5349),
-                            DirectorId = "a42b21c1-bf20-4730-bf32-616637f29f01",
+                            Id = new Guid("7cbcc5b6-e8d8-42ee-829a-7707c0dcfbf8"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7299),
+                            DirectorId = "fdea1ee6-3748-4a12-8177-937e67806ad7",
                             Imdb = 7.5,
                             Name = "Gora + Arog",
                             Price = 40.00m,
@@ -546,9 +550,9 @@ namespace Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("bbdefef2-150b-4bfe-9f20-5f9485b0993a"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5354),
-                            DirectorId = "a42b21c1-bf20-4730-bf32-616637f29f01",
+                            Id = new Guid("8c363a61-9adb-47cb-8b39-c5cc85494b92"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7304),
+                            DirectorId = "fdea1ee6-3748-4a12-8177-937e67806ad7",
                             Imdb = 6.2000000000000002,
                             Name = "Ali Baba ve 7 Cüceler",
                             Price = 33.50m,
@@ -558,9 +562,9 @@ namespace Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0d4855ff-135a-426c-bb90-a6481c95f346"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5359),
-                            DirectorId = "a42b21c1-bf20-4730-bf32-616637f29f01",
+                            Id = new Guid("e8c8de3c-8943-41d0-a1c1-2359b6741796"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7308),
+                            DirectorId = "fdea1ee6-3748-4a12-8177-937e67806ad7",
                             Imdb = 6.7000000000000002,
                             Name = "Cehennem Melekleri 2",
                             Price = 29.00m,
@@ -570,9 +574,9 @@ namespace Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b0c0706a-5496-4944-a410-b043a6250cd4"),
-                            CreationDate = new DateTime(2024, 1, 16, 12, 38, 44, 23, DateTimeKind.Utc).AddTicks(5366),
-                            DirectorId = "a42b21c1-bf20-4730-bf32-616637f29f01",
+                            Id = new Guid("f94b0f0f-baff-42e0-a918-c0041378dd1c"),
+                            CreationDate = new DateTime(2024, 1, 23, 12, 26, 54, 423, DateTimeKind.Utc).AddTicks(7314),
+                            DirectorId = "fdea1ee6-3748-4a12-8177-937e67806ad7",
                             Imdb = 6.5,
                             Name = "Fasulye",
                             Price = 26.50m,

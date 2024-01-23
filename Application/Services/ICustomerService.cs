@@ -18,5 +18,6 @@ namespace Application.Services
         Task<GenericResponse<bool>> CreateOrderAsync(GiveOrderDTO model);
         Task<GenericResponse<List<UserMovie>>> GetUserMovie(string id);
         Task<GenericResponse<List<OrderVM>>> GetUserOrder(string id);
+        Task<GenericResponse<CustomerVM>> GetUserDetails(string id);
     }
 }

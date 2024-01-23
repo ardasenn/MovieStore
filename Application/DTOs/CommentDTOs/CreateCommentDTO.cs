@@ -23,7 +23,7 @@ namespace Application.DTOs.CommentDTOs
             RuleFor(x => x.MovieId).NotEmpty();
             RuleFor(x => x.CustomerId).NotEmpty();
             RuleFor(x=> x.Text).NotEmpty().MinimumLength(1).MaximumLength(1000);
-            RuleFor(x=>x.Rate).GreaterThanOrEqualTo(1);
+            RuleFor(x=>x.Rate).GreaterThanOrEqualTo(1).LessThanOrEqualTo(10);
         }
     }
 }

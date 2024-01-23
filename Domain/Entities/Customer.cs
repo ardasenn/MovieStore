@@ -22,5 +22,6 @@ namespace Domain.Entities
         public DateTime? DeleteDate { get; set; }
         public Status Status { get; set; }
         public List<Order> Orders { get; set; }
+        public decimal Balance { get; set; } = 100M;
     }
 }

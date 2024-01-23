@@ -23,7 +23,7 @@ namespace Persistence.Repositories
 
         public IQueryable<T> GetAll()
         {
-            return Table.Where(a=>a.Status!=Domain.Enums.Status.Pasive);
+            return Table.Where(a=>a.Status!=Domain.Enums.Status.Pasive).OrderByDescending(a=>a.CreationDate);
         }
 
         public async Task<T> GetByIdAsync(string id)=>await Table.Where(a=>a.Id.ToString()==id && a.Status!=Domain.Enums.Status.Pasive).FirstOrDefaultAsync();
@@ -33,7 +33,7 @@ namespace Persistence.Repositories
         
 
         public IQueryable<T> GetWhere(Expression<Func<T, bool>> expression)=>
-            db.Set<T>().Where(expression);
+            db.Set<T>().Where(expression).OrderByDescending(a=>a.CreationDate);
         
     }
 }

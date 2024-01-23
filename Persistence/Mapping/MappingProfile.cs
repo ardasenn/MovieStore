@@ -40,6 +40,7 @@ namespace Persistence.Mapping
             .ForMember(dest => dest.Actors, opt => opt.MapFrom(src => src.Actors.Select(a => new ActorSummaryVM { Id = a.Id, FirstName = a.FirstName, LastName = a.LastName })))
             .ForMember(dest => dest.Comments, opt => opt.MapFrom(src => src.Comments.Where(a=>a.Status!=Domain.Enums.Status.Pasive).Select(c => new CommentVM { Id = c.Id, Rate = c.Rate, Text = c.Text, CreationDate = c.CreationDate, UpdateDate = c.UpdateDate })));
             CreateMap<Order, OrderVM>().ForMember(dest=>dest.MovieList,opt=> opt.MapFrom(src=>src.MovieList.Select(a=>new UserMovie { Id=a.Id,ReleaseDate=a.ReleaseDate,DirectorId=a.DirectorId,Name=a.Name,Imdb=a.Imdb,Price=a.Price})));
+            CreateMap<Customer, CustomerVM>();
         }
     }
 }

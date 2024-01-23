@@ -66,6 +66,7 @@ namespace Persistence.ConcreteServices.CustomerService
             }
             else
             {
+                decimal totalPrice = 0;
                 Order order = new()
                 {
                     Customer = customer
@@ -76,12 +77,20 @@ namespace Persistence.ConcreteServices.CustomerService
                     var movie = movieList.Where(a => a.Id.ToString() == item).FirstOrDefault();
                     if (movie is null)
                     {
-                        response.Message = string.Format("{0} id'li {1}", item, Messages.NotExist);
+                        response.Message = string.Format("{0} id {1}", item, Messages.NotExist);
                         response.Data = response.IsSuccess = false;
                         return response;
                     }
+                    totalPrice += movie.Price;
                     order.MovieList.Add(movie);
                 }
+                if (customer.Balance < totalPrice)
+                {
+                    response.IsSuccess = false;
+                    response.Message = Messages.BalanceFail;
+                    return response;
+                }
+                customer.Balance-=totalPrice;
                 var result = await orderWriteRepository.AddAsync(order);
                 await orderWriteRepository.SaveAsync();
                 if (result) response.Message = Messages.AddSucceeded;
@@ -169,7 +178,24 @@ namespace Persistence.ConcreteServices.CustomerService
 
             return response;
         }
+        public async Task<GenericResponse<CustomerVM>> GetUserDetails(string id)
+        {
+            GenericResponse<CustomerVM> response = new();
 
+            var customer = await userManager.FindByIdAsync(id);
+            if (customer is null)
+            {
+                response.Message = Messages.NotExist;
+                response.IsSuccess = false;
+                return response;
+            }
+            List<Order> orderList = orderReadRepository.GetWhereIncludeMovie(id);
+            CustomerVM customerVM = mapper.Map<CustomerVM>(customer);
+            customerVM.OrdersCount = orderList.Count;
+            response.Data = customerVM;
+
+            return response;
+        }
 
     }
 }
