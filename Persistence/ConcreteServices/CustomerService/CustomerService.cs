@@ -83,6 +83,7 @@ namespace Persistence.ConcreteServices.CustomerService
                     }
                     totalPrice += movie.Price;
                     order.MovieList.Add(movie);
+                    movie.SalesQuantity++;
                 }
                 if (customer.Balance < totalPrice)
                 {
@@ -90,7 +91,7 @@ namespace Persistence.ConcreteServices.CustomerService
                     response.Message = Messages.BalanceFail;
                     return response;
                 }
-                customer.Balance-=totalPrice;
+                customer.Balance -= totalPrice;
                 var result = await orderWriteRepository.AddAsync(order);
                 await orderWriteRepository.SaveAsync();
                 if (result) response.Message = Messages.AddSucceeded;
