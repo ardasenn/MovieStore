@@ -30,7 +30,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAnyOrigin",
         builder =>
         {
-            builder.WithOrigins("http://localhost:3000");
+            builder.WithOrigins("https://movie-front-plum.vercel.app");
             builder.AllowAnyHeader();
             builder.AllowAnyMethod();
             builder.AllowCredentials();
