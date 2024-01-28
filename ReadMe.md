@@ -1,24 +1,23 @@
-# Movie Store Uygulaması
+# Movie Store App
 
-Bu uygulamada kullanıcılar siteye kayıt olup filmler alabilmektelerdir.Film ekleme işlerini ise sadece Admin olarak atanan user'lar yapabilirler.
+- In this application, users can register on the site and purchase movies. You can check this project on live:
+- Link : https://movie-front-plum.vercel.app
+- Frontend repository link : https://github.com/ardasenn/movie-front
 
-## Neden bu projeyi yapıyorum/yaptım ?
+## Why did I develop this project?
 
-Aktif olarak çalışıyorum arta kalan vakitlerimde bu projeyi geliştirmeyi planlıyorum. Hepimiz iş yerlerinde belirli yapılar ile çalışmaktayız. Kendi başıma geliştirmek istediğim, yeni bilgiler öğrenmeyi planladığım ve uyguladığım bir proje olmasını istiyorum.
+We all work within certain structures at our workplaces. I want this project to be a personal endeavor where I can develop and apply new knowledge.
 
 ### Kullanılacak Yaklaşım ve Teknolojiler
 
-- Proje tabiki katmanlı mimari ile hazırlanacak
 - Onion Architecture
-- Database tarafında MSSQL, ORM olarak EntityFrameworkCore
-- Backend .NetCore 6
-- FrontEnd tarafında React ile ilerlemek istiyorum.
+- PostgreSQL (Cloud) for the database, using EntityFrameworkCore as the ORM
+- Backend in .NetCore 6
+- Frontend development with React
 
-### Projede hedeflenen kazanım ve pratikler
+### Goals and Practices Targeted in the Project
 
-- Jwt token altyapısı ile kullanıcı Authentication işlemlerinin kurgulanması ve kontrolü
-- UnitTest yazımı
-- Custom Middleware yazımı ve kullanılması
-- Frontend tarafında React ile geliştirme yapıp tecrübelenme
-- Onion Architecture bu proje ile öğrenmeyi amaçlıyorum. Bu design pattern ile ilk projem :)
-- Deployment süreçleri
+- Implementation and control of user authentication processes using Jwt token infrastructure
+- Learning how to write custom middleware
+- Frontend development with React to gain experience
+- Learning Onion Architecture through this project. This is my first project using this design pattern!

@@ -83,3 +83,16 @@
 - Authentication işlemlerini değiştirdim refresh key httponly olacak şekilde servis ediliyor
 - Comment operasyonları için gerekli servisler entegre edildi
 - Bir iki haftada projenin tamamlanması için bazı yapılardan vazgeçtim
+
+## Gün 16
+
+- Aslında gün 16 degil ama yinede buraya yazmak istedim. Projeyi şimdilik yayınlama kararı aldım. Admin'le alakalı feture'ları şimdilik eklemek istemiyorum
+- Frontend tarafında benim için çok faydalı oldu. Backend alanında şuanda mevcut bilgilerim bu proje kullandığımdan çok daha güncel ama tekrar bir refactor sürecine gitmek istemiyorum.
+- .Net tarafında response Cookie' olarak gönderdiğim refreshToken tarayıcılar tarafından karşılanamadı. O sorunu malesef istediğim şekilde çözemedim.
+- Fakedata generator kullanmak istedim projede ama malesef orada da many to many ilişkilerde yetersiz gördüm. İstediğim performansı alamadım orada da.
+
+# Çıkarımlar
+
+- Yeni başlayacağım projelerde kesinlikle bu kadar esnek aralıklar ile geliştirme yapmayacağım. Çünkü bilgilerim her geçen gün yenileniyor ve doğrularım değişiyor.
+- Artık günlük işlerimi çözen veya topluma yararlı projeler geliştirme konusunda adımlar atmaya çalışacağım.
+- Proje geliştirirken modül modül gitmenin daha faydalı olacağını düşünüyorum. Yani komple backedi bitirmek yerine örneğin authenticaiton işlemlerini backend ve frontend tarafında sırayla bitirmenin daha verimli olduğunu düşünüyorum kendim için.
