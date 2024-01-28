@@ -8,7 +8,7 @@
 
 We all work within certain structures at our workplaces. I want this project to be a personal endeavor where I can develop and apply new knowledge.
 
-### Kullanılacak Yaklaşım ve Teknolojiler
+### Tech Stack
 
 - Onion Architecture
 - PostgreSQL (Cloud) for the database, using EntityFrameworkCore as the ORM
